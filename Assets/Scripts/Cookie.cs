@@ -11,18 +11,9 @@ public class Cookie : MonoBehaviour
 
     public int cookiesPerClick;
 
-    #region MouseDetection
-
     private void OnMouseDown()
     {
-        transform.localScale -= new Vector3(0.25f, 0.25f, 0);
-
-        if (ClickEvent != null)
-            ClickEvent(cookiesPerClick);
-        if (TotalClicks != null)
-            TotalClicks.Invoke();
-
-        print("Got through");
+        Clicked();
     }
 
     private void OnMouseUp()
@@ -30,7 +21,15 @@ public class Cookie : MonoBehaviour
         transform.localScale += new Vector3(0.25f, 0.25f, 0);
     }
 
-    #endregion
+    private void Clicked()
+    {
+        transform.localScale -= new Vector3(0.25f, 0.25f, 0); // create animation
+
+        if (ClickEvent != null)
+            ClickEvent(cookiesPerClick);
+        if (TotalClicks != null)
+            TotalClicks.Invoke();
+    }
 
     private void IncreaseCookiesPerClick(int amount)
     {

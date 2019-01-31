@@ -16,15 +16,16 @@ public class DisplayText : MonoBehaviour
         FindObjectOfType<Achievements>().OnAchivementGet += AchievementTextDisplay;
         cookieScript = FindObjectOfType<Cookie>();
         cookieScript.TotalClicks += DisplayScoreText;
-        Upgrade[] upgrades = FindObjectsOfType<Upgrade>();
+        UpgradeManager upgradeManager = FindObjectOfType<UpgradeManager>();
 
-        foreach (Upgrade upgradeScript in upgrades)
-        {
-            upgradeScript.JustBoughtAThingAndNowToEnterAStateOfDepression += DisplayScoreText;
-            upgradeScript.JustBoughtAThingAndNowToEnterAStateOfDepression += UpdateCookiesPerClick;
-        }
+        upgradeManager.JustBoughtAThing += DisplayScoreText;
+        upgradeManager.JustBoughtAThing += UpdateIdleCookies;
 
-        UpdateCookiesPerClick();
+        IdleCookies idleCookies = FindObjectOfType<IdleCookies>();
+
+        idleCookies.IdleCookieGained += DisplayScoreText;
+
+        UpdateIdleCookies();
     }
 
     private void DisplayScoreText()
@@ -38,8 +39,8 @@ public class DisplayText : MonoBehaviour
         achievementText[1].text = description;
     }
 
-    private void UpdateCookiesPerClick()
+    private void UpdateIdleCookies()
     {
-        CookiesPerClickText.text = cookieScript.cookiesPerClick.ToString();
+        CookiesPerClickText.text = IdleCookies.cookiesPerSecond.ToString();
     }
 }

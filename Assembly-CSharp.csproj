@@ -68,9 +68,11 @@
     <Compile Include="Assets\Scripts\Cookie.cs" />
     <Compile Include="Assets\Scripts\CookieHandler.cs" />
     <Compile Include="Assets\Scripts\DisplayText.cs" />
+    <Compile Include="Assets\Scripts\IdleCookies.cs" />
     <Compile Include="Assets\Scripts\Scriptable objects\Achivements\ClicksAchievement.cs" />
     <Compile Include="Assets\Scripts\Scriptable objects\Achivements\ScoreAchivement.cs" />
-    <Compile Include="Assets\Scripts\Upgrade.cs" />
+    <Compile Include="Assets\Scripts\UpgradeManager.cs" />
+    <Compile Include="Assets\Scripts\UpgradeModule.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/joar.andersson/Documents/workyUnity/CookieClicker/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

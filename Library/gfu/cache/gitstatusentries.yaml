@@ -1,0 +1,569 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 61
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 995438498, guid: 68c7e4565cde54155bb78d8e935f1dd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cacheType: 5
+  lastUpdatedAtString: 2019-01-31T19:57:48.626+01:00
+  initializedAtString: 2019-01-31T19:54:10.142+01:00
+  entries:
+  - path: .vs\CookieClicker\v15\.suo
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\.vs\CookieClicker\v15\.suo
+    projectPath: .vs\CookieClicker\v15\.suo
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: .vs\CookieClicker\v15\Server\sqlite3\db.lock
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\.vs\CookieClicker\v15\Server\sqlite3\db.lock
+    projectPath: .vs\CookieClicker\v15\Server\sqlite3\db.lock
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: .vs\CookieClicker\v15\Server\sqlite3\storage.ide
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\.vs\CookieClicker\v15\Server\sqlite3\storage.ide
+    projectPath: .vs\CookieClicker\v15\Server\sqlite3\storage.ide
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: .vs\CookieClicker\v15\Server\sqlite3\storage.ide-shm
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\.vs\CookieClicker\v15\Server\sqlite3\storage.ide-shm
+    projectPath: .vs\CookieClicker\v15\Server\sqlite3\storage.ide-shm
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: .vs\CookieClicker\v15\Server\sqlite3\storage.ide-wal
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\.vs\CookieClicker\v15\Server\sqlite3\storage.ide-wal
+    projectPath: .vs\CookieClicker\v15\Server\sqlite3\storage.ide-wal
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assembly-CSharp.csproj
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Assembly-CSharp.csproj
+    projectPath: Assembly-CSharp.csproj
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Assembly-CSharp-Editor-firstpass.csproj
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Assembly-CSharp-Editor-firstpass.csproj
+    projectPath: Assembly-CSharp-Editor-firstpass.csproj
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets\Plugins\GitHub.meta
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Assets\Plugins\GitHub.meta
+    projectPath: Assets\Plugins\GitHub.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets\Plugins\GitHub\Editor.meta
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Assets\Plugins\GitHub\Editor.meta
+    projectPath: Assets\Plugins\GitHub\Editor.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets\Plugins\GitHub\Editor\x64.meta
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Assets\Plugins\GitHub\Editor\x64.meta
+    projectPath: Assets\Plugins\GitHub\Editor\x64.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets\Plugins\GitHub\Editor\x64\sfw_x64.dll
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Assets\Plugins\GitHub\Editor\x64\sfw_x64.dll
+    projectPath: Assets\Plugins\GitHub\Editor\x64\sfw_x64.dll
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets\Plugins\GitHub\Editor\x64\sfw_x64.dll.meta
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Assets\Plugins\GitHub\Editor\x64\sfw_x64.dll.meta
+    projectPath: Assets\Plugins\GitHub\Editor\x64\sfw_x64.dll.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets\Plugins\GitHub\Editor\x86.meta
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Assets\Plugins\GitHub\Editor\x86.meta
+    projectPath: Assets\Plugins\GitHub\Editor\x86.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets\Plugins\GitHub\Editor\x86\pthreadVC2.dll
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Assets\Plugins\GitHub\Editor\x86\pthreadVC2.dll
+    projectPath: Assets\Plugins\GitHub\Editor\x86\pthreadVC2.dll
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets\Plugins\GitHub\Editor\x86\pthreadVC2.dll.meta
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Assets\Plugins\GitHub\Editor\x86\pthreadVC2.dll.meta
+    projectPath: Assets\Plugins\GitHub\Editor\x86\pthreadVC2.dll.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets\Plugins\GitHub\Editor\x86\sfw_x86.dll
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Assets\Plugins\GitHub\Editor\x86\sfw_x86.dll
+    projectPath: Assets\Plugins\GitHub\Editor\x86\sfw_x86.dll
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets\Plugins\GitHub\Editor\x86\sfw_x86.dll.meta
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Assets\Plugins\GitHub\Editor\x86\sfw_x86.dll.meta
+    projectPath: Assets\Plugins\GitHub\Editor\x86\sfw_x86.dll.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets\Scenes\Cookies.unity
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Assets\Scenes\Cookies.unity
+    projectPath: Assets\Scenes\Cookies.unity
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Assets\Scripts\Cookie.cs
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Assets\Scripts\Cookie.cs
+    projectPath: Assets\Scripts\Cookie.cs
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Assets\Scripts\DisplayText.cs
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Assets\Scripts\DisplayText.cs
+    projectPath: Assets\Scripts\DisplayText.cs
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Assets\Scripts\IdleCookies.cs
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Assets\Scripts\IdleCookies.cs
+    projectPath: Assets\Scripts\IdleCookies.cs
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets\Scripts\IdleCookies.cs.meta
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Assets\Scripts\IdleCookies.cs.meta
+    projectPath: Assets\Scripts\IdleCookies.cs.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets\Scripts\Upgrade.cs
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Assets\Scripts\Upgrade.cs
+    projectPath: Assets\Scripts\Upgrade.cs
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Assets\Scripts\Upgrade.cs.meta
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Assets\Scripts\Upgrade.cs.meta
+    projectPath: Assets\Scripts\Upgrade.cs.meta
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Assets\Scripts\UpgradeManager.cs
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Assets\Scripts\UpgradeManager.cs
+    projectPath: Assets\Scripts\UpgradeManager.cs
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets\Scripts\UpgradeManager.cs.meta
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Assets\Scripts\UpgradeManager.cs.meta
+    projectPath: Assets\Scripts\UpgradeManager.cs.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets\Scripts\UpgradeModule.cs
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Assets\Scripts\UpgradeModule.cs
+    projectPath: Assets\Scripts\UpgradeModule.cs
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets\Scripts\UpgradeModule.cs.meta
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Assets\Scripts\UpgradeModule.cs.meta
+    projectPath: Assets\Scripts\UpgradeModule.cs.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Library\assetDatabase3
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\assetDatabase3
+    projectPath: Library\assetDatabase3
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library\CurrentLayout.dwlt
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\CurrentLayout.dwlt
+    projectPath: Library\CurrentLayout.dwlt
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library\CurrentMaximizeLayout.dwlt
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\CurrentMaximizeLayout.dwlt
+    projectPath: Library\CurrentMaximizeLayout.dwlt
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library\EditorInstance.json
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\EditorInstance.json
+    projectPath: Library\EditorInstance.json
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Library\gfu\cache\gitlocks.yaml
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\gfu\cache\gitlocks.yaml
+    projectPath: Library\gfu\cache\gitlocks.yaml
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Library\gfu\cache\gitlog.yaml
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\gfu\cache\gitlog.yaml
+    projectPath: Library\gfu\cache\gitlog.yaml
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Library\gfu\cache\gitstatusentries.yaml
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\gfu\cache\gitstatusentries.yaml
+    projectPath: Library\gfu\cache\gitstatusentries.yaml
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Library\gfu\cache\gittrackingstatus.yaml
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\gfu\cache\gittrackingstatus.yaml
+    projectPath: Library\gfu\cache\gittrackingstatus.yaml
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Library\gfu\cache\gituser.yaml
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\gfu\cache\gituser.yaml
+    projectPath: Library\gfu\cache\gituser.yaml
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Library\gfu\cache\repoinfo.yaml
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\gfu\cache\repoinfo.yaml
+    projectPath: Library\gfu\cache\repoinfo.yaml
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Library\InspectorExpandedItems.asset
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\InspectorExpandedItems.asset
+    projectPath: Library\InspectorExpandedItems.asset
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library\metadata\4e\4eaaedf2d1402cc4ebf455112b24f30a
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\metadata\4e\4eaaedf2d1402cc4ebf455112b24f30a
+    projectPath: Library\metadata\4e\4eaaedf2d1402cc4ebf455112b24f30a
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library\metadata\4e\4eaaedf2d1402cc4ebf455112b24f30a.info
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\metadata\4e\4eaaedf2d1402cc4ebf455112b24f30a.info
+    projectPath: Library\metadata\4e\4eaaedf2d1402cc4ebf455112b24f30a.info
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library\metadata\55\55b32f14bf9befe4eaf3ac59c51326b6
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\metadata\55\55b32f14bf9befe4eaf3ac59c51326b6
+    projectPath: Library\metadata\55\55b32f14bf9befe4eaf3ac59c51326b6
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library\metadata\b3\b3ca44ca00de33247b475b2ed2092560
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\metadata\b3\b3ca44ca00de33247b475b2ed2092560
+    projectPath: Library\metadata\b3\b3ca44ca00de33247b475b2ed2092560
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Library\metadata\b3\b3ca44ca00de33247b475b2ed2092560.info
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\metadata\b3\b3ca44ca00de33247b475b2ed2092560.info
+    projectPath: Library\metadata\b3\b3ca44ca00de33247b475b2ed2092560.info
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Library\metadata\c1\c12e951d79b2bcc46af9f3d715ef663e
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\metadata\c1\c12e951d79b2bcc46af9f3d715ef663e
+    projectPath: Library\metadata\c1\c12e951d79b2bcc46af9f3d715ef663e
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Library\metadata\c1\c12e951d79b2bcc46af9f3d715ef663e.info
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\metadata\c1\c12e951d79b2bcc46af9f3d715ef663e.info
+    projectPath: Library\metadata\c1\c12e951d79b2bcc46af9f3d715ef663e.info
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Library\metadata\d4\d4d32ebe1e055914ab9e28a7620ccb9c
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\metadata\d4\d4d32ebe1e055914ab9e28a7620ccb9c
+    projectPath: Library\metadata\d4\d4d32ebe1e055914ab9e28a7620ccb9c
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library\ScriptAssemblies\Assembly-CSharp.dll
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\ScriptAssemblies\Assembly-CSharp.dll
+    projectPath: Library\ScriptAssemblies\Assembly-CSharp.dll
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library\ScriptAssemblies\Assembly-CSharp.dll.mdb
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\ScriptAssemblies\Assembly-CSharp.dll.mdb
+    projectPath: Library\ScriptAssemblies\Assembly-CSharp.dll.mdb
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library\ShaderCache\0\05d5a85b8d977b5925a3e6b10850d086.bin
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\ShaderCache\0\05d5a85b8d977b5925a3e6b10850d086.bin
+    projectPath: Library\ShaderCache\0\05d5a85b8d977b5925a3e6b10850d086.bin
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Library\ShaderCache\b\b0419e7b75c949155020ba2977442e26.bin
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\ShaderCache\b\b0419e7b75c949155020ba2977442e26.bin
+    projectPath: Library\ShaderCache\b\b0419e7b75c949155020ba2977442e26.bin
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Library\shadercompiler-UnityShaderCompiler.exe0.log
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\shadercompiler-UnityShaderCompiler.exe0.log
+    projectPath: Library\shadercompiler-UnityShaderCompiler.exe0.log
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library\UIElements\EditorWindows\UnityEditor.PackageManager.UI.PackageManagerWindow.pref
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Library\UIElements\EditorWindows\UnityEditor.PackageManager.UI.PackageManagerWindow.pref
+    projectPath: Library\UIElements\EditorWindows\UnityEditor.PackageManager.UI.PackageManagerWindow.pref
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
+    projectPath: obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+    projectPath: obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache
+    projectPath: obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Temp\__Backupscenes\0.backup
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\__Backupscenes\0.backup
+    projectPath: Temp\__Backupscenes\0.backup
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\TarGZ\archtemp.tar
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\TarGZ\archtemp.tar
+    projectPath: Temp\TarGZ\archtemp.tar
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\Unity.TextMeshPro.Editor.dll
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\Unity.TextMeshPro.Editor.dll
+    projectPath: Temp\Unity.TextMeshPro.Editor.dll
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\Unity.TextMeshPro.Editor.dll.mdb
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\Unity.TextMeshPro.Editor.dll.mdb
+    projectPath: Temp\Unity.TextMeshPro.Editor.dll.mdb
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityLockfile
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityLockfile
+    projectPath: Temp\UnityLockfile
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-0031bc6b0a660f7438825d871273e496
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-0031bc6b0a660f7438825d871273e496
+    projectPath: Temp\UnityTempFile-0031bc6b0a660f7438825d871273e496
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-0570060b2f291e94887d11cf98efe3ab
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-0570060b2f291e94887d11cf98efe3ab
+    projectPath: Temp\UnityTempFile-0570060b2f291e94887d11cf98efe3ab
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-16d2937a7e10d7d40af3dba79f5077fb
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-16d2937a7e10d7d40af3dba79f5077fb
+    projectPath: Temp\UnityTempFile-16d2937a7e10d7d40af3dba79f5077fb
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-1e6442edddbd13745b182580c908637d
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-1e6442edddbd13745b182580c908637d
+    projectPath: Temp\UnityTempFile-1e6442edddbd13745b182580c908637d
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-2a37f11b6327c4e4c923e35fcbe13d01
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-2a37f11b6327c4e4c923e35fcbe13d01
+    projectPath: Temp\UnityTempFile-2a37f11b6327c4e4c923e35fcbe13d01
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-42713c3a7f4bb2144a524a4cc7ded2a1
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-42713c3a7f4bb2144a524a4cc7ded2a1
+    projectPath: Temp\UnityTempFile-42713c3a7f4bb2144a524a4cc7ded2a1
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-507acbfdf09d62c4ab4213078efbab58
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-507acbfdf09d62c4ab4213078efbab58
+    projectPath: Temp\UnityTempFile-507acbfdf09d62c4ab4213078efbab58
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-620bd886be1eebd4882c8ec7a0c1cb44
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-620bd886be1eebd4882c8ec7a0c1cb44
+    projectPath: Temp\UnityTempFile-620bd886be1eebd4882c8ec7a0c1cb44
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-6ca13b4d8f9abff43b0d609ee670aae7
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-6ca13b4d8f9abff43b0d609ee670aae7
+    projectPath: Temp\UnityTempFile-6ca13b4d8f9abff43b0d609ee670aae7
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-77d5061c164c31d498bedc135a7f49fc
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-77d5061c164c31d498bedc135a7f49fc
+    projectPath: Temp\UnityTempFile-77d5061c164c31d498bedc135a7f49fc
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-79d4d0e78ec5d94478195e3b7d4ad5d8
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-79d4d0e78ec5d94478195e3b7d4ad5d8
+    projectPath: Temp\UnityTempFile-79d4d0e78ec5d94478195e3b7d4ad5d8
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-7f8a33acbe6068e4db6c3495b1ec8600
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-7f8a33acbe6068e4db6c3495b1ec8600
+    projectPath: Temp\UnityTempFile-7f8a33acbe6068e4db6c3495b1ec8600
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-8068c0d2e5ed53745849b260598c6ef8
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-8068c0d2e5ed53745849b260598c6ef8
+    projectPath: Temp\UnityTempFile-8068c0d2e5ed53745849b260598c6ef8
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-819f5ce753711d845a204f51eeb35a56
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-819f5ce753711d845a204f51eeb35a56
+    projectPath: Temp\UnityTempFile-819f5ce753711d845a204f51eeb35a56
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-879e7249a1999da498377e201040a3ba
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-879e7249a1999da498377e201040a3ba
+    projectPath: Temp\UnityTempFile-879e7249a1999da498377e201040a3ba
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-92761d219defc294aa5b0fdf1cf2680b
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-92761d219defc294aa5b0fdf1cf2680b
+    projectPath: Temp\UnityTempFile-92761d219defc294aa5b0fdf1cf2680b
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-93329589eaa8ab74ba2422ee95b37d47
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-93329589eaa8ab74ba2422ee95b37d47
+    projectPath: Temp\UnityTempFile-93329589eaa8ab74ba2422ee95b37d47
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-946298717ae9f0141906ee9da584d4b7
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-946298717ae9f0141906ee9da584d4b7
+    projectPath: Temp\UnityTempFile-946298717ae9f0141906ee9da584d4b7
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-976d5ce87fa524c4782f9083a61b6c13
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-976d5ce87fa524c4782f9083a61b6c13
+    projectPath: Temp\UnityTempFile-976d5ce87fa524c4782f9083a61b6c13
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-98b3c3aeee18eda4f8f6ee0f06b31d6e
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-98b3c3aeee18eda4f8f6ee0f06b31d6e
+    projectPath: Temp\UnityTempFile-98b3c3aeee18eda4f8f6ee0f06b31d6e
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-9f8820164df2b8a498acb2ff929d3d9a
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-9f8820164df2b8a498acb2ff929d3d9a
+    projectPath: Temp\UnityTempFile-9f8820164df2b8a498acb2ff929d3d9a
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-a0821b4e443caef44abd493d2f53c317
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-a0821b4e443caef44abd493d2f53c317
+    projectPath: Temp\UnityTempFile-a0821b4e443caef44abd493d2f53c317
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-b601795a106e0524581b9632bc767a8c
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-b601795a106e0524581b9632bc767a8c
+    projectPath: Temp\UnityTempFile-b601795a106e0524581b9632bc767a8c
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-b8ee3d40644411045ae3f0c096b41aec
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-b8ee3d40644411045ae3f0c096b41aec
+    projectPath: Temp\UnityTempFile-b8ee3d40644411045ae3f0c096b41aec
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-bf2e0e3021520f74a80ba2a2a409bc73
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-bf2e0e3021520f74a80ba2a2a409bc73
+    projectPath: Temp\UnityTempFile-bf2e0e3021520f74a80ba2a2a409bc73
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-c93bf14ce57f52d4085282ffab97e7f2
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-c93bf14ce57f52d4085282ffab97e7f2
+    projectPath: Temp\UnityTempFile-c93bf14ce57f52d4085282ffab97e7f2
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-dde073b111de489408206fc0b3f9b499
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-dde073b111de489408206fc0b3f9b499
+    projectPath: Temp\UnityTempFile-dde073b111de489408206fc0b3f9b499
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-e2fb7ee4271953b4286ffe733eecc59d
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-e2fb7ee4271953b4286ffe733eecc59d
+    projectPath: Temp\UnityTempFile-e2fb7ee4271953b4286ffe733eecc59d
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-e56ac585de07cdf41ad63b289d048522
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-e56ac585de07cdf41ad63b289d048522
+    projectPath: Temp\UnityTempFile-e56ac585de07cdf41ad63b289d048522
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-eeed39fcd98d1c041af0ecef83bfb4ec
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-eeed39fcd98d1c041af0ecef83bfb4ec
+    projectPath: Temp\UnityTempFile-eeed39fcd98d1c041af0ecef83bfb4ec
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-fc9ed1c14246e75489b2ac4ae69f8932
+    fullPath: C:\Users\joar.andersson\Documents\workyUnity\CookieClicker\Temp\UnityTempFile-fc9ed1c14246e75489b2ac4ae69f8932
+    projectPath: Temp\UnityTempFile-fc9ed1c14246e75489b2ac4ae69f8932
+    originalPath: 
+    status: 1
+    staged: 0
