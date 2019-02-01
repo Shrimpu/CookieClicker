@@ -65,6 +65,7 @@
     <Compile Include="Assets\BadStuffNoLook\SpaceClicker.cs" />
     <Compile Include="Assets\BadStuffNoLook\Spinner.cs" />
     <Compile Include="Assets\Scripts\Achievements.cs" />
+    <Compile Include="Assets\Scripts\ClickerBehaviour.cs" />
     <Compile Include="Assets\Scripts\Cookie.cs" />
     <Compile Include="Assets\Scripts\CookieHandler.cs" />
     <Compile Include="Assets\Scripts\DisplayText.cs" />
@@ -72,7 +73,6 @@
     <Compile Include="Assets\Scripts\Scriptable objects\Achivements\ClicksAchievement.cs" />
     <Compile Include="Assets\Scripts\Scriptable objects\Achivements\ScoreAchivement.cs" />
     <Compile Include="Assets\Scripts\UpgradeManager.cs" />
-    <Compile Include="Assets\Scripts\UpgradeModule.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/joar.andersson/Documents/workyUnity/CookieClicker/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

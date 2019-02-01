@@ -7,6 +7,9 @@ public class UpgradeManager : MonoBehaviour
 {
     public event System.Action JustBoughtAThing;
 
+    public GameObject autoClicker;
+    public Transform autoClickerHolder;
+
     [System.Serializable]
     public class UpgradeData
     {
@@ -29,11 +32,25 @@ public class UpgradeManager : MonoBehaviour
     public int minimumCostIncrease = 5;
     public float costScaling = 0.05f;
 
+    // Autoclicker fields
+    [Range(1, 100)]
+    public int autoClickersPerLevel = 20;
+    private int autoClickerCounter = 0;
+    public float radius = 2.15f;
+    public float radiusIncrease = 0.3f;
+    private float currentRadius;
+    private float currentAngle = 0;
+    private float autoClickerOffsetAmount;
+    private float autoClickerOffset = 0f;
+    private float autoClickerClickOffset;
+
     //Cookie cookie;
 
     private void Start()
     {
         costScaling += 1f; // makes the scaling positive even if it is set below 1 in the inspector
+        currentRadius = radius;
+        autoClickerOffsetAmount = (360 / autoClickersPerLevel) / 2;
 
         //cookie = FindObjectOfType<Cookie>();
         for (int i = 0; i < upgradeData.Length; i++)
@@ -55,7 +72,10 @@ public class UpgradeManager : MonoBehaviour
 
     public void BuyUpgrade0()
     {
-        BuyUpgrade(0);
+        bool afforded = BuyUpgrade(0);
+
+        if (afforded)
+            SpawnAutoClicker();
     }
 
     public void BuyUpgrade1()
@@ -80,7 +100,7 @@ public class UpgradeManager : MonoBehaviour
 
     #endregion
 
-    private void BuyUpgrade(int upgradeID)
+    private bool BuyUpgrade(int upgradeID)
     {
         if (upgradeData[upgradeID] != null)
         {
@@ -99,7 +119,30 @@ public class UpgradeManager : MonoBehaviour
 
                 if (JustBoughtAThing != null)
                     JustBoughtAThing.Invoke();
+
+                return true;
             }
+        }
+        return false;
+    }
+
+    public void SpawnAutoClicker()
+    {
+        GameObject clicker = Instantiate(autoClicker, autoClickerHolder.position - new Vector3(Mathf.Cos((currentAngle + 90f) * Mathf.Deg2Rad),
+            Mathf.Sin((currentAngle + 90f) * Mathf.Deg2Rad)) * currentRadius, Quaternion.Euler(0, 0, currentAngle));
+        currentAngle += 360 / autoClickersPerLevel;
+
+        clicker.transform.SetParent(autoClickerHolder);
+        autoClickerClickOffset = autoClickerCounter % 2 == 0 ? 0.5f : 0f;
+        clicker.GetComponent<ClickerBehaviour>().offset = autoClickerClickOffset;
+
+        autoClickerCounter++;
+        if (autoClickerCounter >= autoClickersPerLevel)
+        {
+            autoClickerCounter = 0;
+            autoClickerOffset += autoClickerOffsetAmount;
+            currentAngle = autoClickerOffset;
+            currentRadius += radiusIncrease;
         }
     }
 }

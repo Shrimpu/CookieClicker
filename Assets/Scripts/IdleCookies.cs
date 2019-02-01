@@ -6,7 +6,7 @@ public class IdleCookies : MonoBehaviour
 {
     public event System.Action IdleCookieGained;
 
-    public static int cookiesPerSecond = 0;
+    public static int cookiesPerSecond = 10000;
 
     void Start()
     {
