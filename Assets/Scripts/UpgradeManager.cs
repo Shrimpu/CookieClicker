@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UpgradeManager : MonoBehaviour
 {
-    public event System.Action JustBoughtAThing;
+    public static event System.Action JustBoughtAThing;
 
     public GameObject autoClicker;
     public Transform autoClickerHolder;
@@ -16,26 +16,33 @@ public class UpgradeManager : MonoBehaviour
         [Tooltip("Requires two textobjects as children")]
         public Transform upgrade;
         public string upgradeName;
-        public int startCost;
+        public ulong startCost;
         [Tooltip("CPS = Cookies per Second. CPC = Cookies per Click")]
-        public int CPSorCPCIncrease;
+        public ulong CPSorCPCIncrease;
 
         [HideInInspector]
         public Text _name;
         [HideInInspector]
         public Text cost;
         [HideInInspector]
-        public int updatedCost;
+        public ulong updatedCost;
     }
 
     public UpgradeData[] upgradeData;
-    public int minimumCostIncrease = 5;
+    public ulong minimumCostIncrease = 5;
     public float costScaling = 0.05f;
+
+    // bools for buying more
+    public bool buy10;
+    public bool buy100;
 
     // Autoclicker fields
     [Range(1, 100)]
-    public int autoClickersPerLevel = 20;
-    private int autoClickerCounter = 0;
+    public float autoClickersPerLevel = 20;
+    public ulong autoClickerPerLevelIncrease = 3;
+    [Range(1, 10)]
+    public float activeClickersPerLevel = 3f;
+    private ulong autoClickerCounter = 0;
     public float radius = 2.15f;
     public float radiusIncrease = 0.3f;
     private float currentRadius;
@@ -68,39 +75,70 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
+    // this doesn't really belong in this script
+    #region changing buyAmount variables
+
+    public void DisableMultiBuy()
+    {
+        buy10 = false;
+        buy100 = false;
+    }
+
+    public void EnableBuy10()
+    {
+        buy10 = true;
+        buy100 = false;
+    }
+
+    public void EnableBuy100()
+    {
+        buy10 = false;
+        buy100 = true;
+    }
+
+    #endregion  
+
     #region Upgrades
 
     public void BuyUpgrade0()
     {
-        bool afforded = BuyUpgrade(0);
+        bool[] afforded = new bool[100];
+        afforded = BuyUpgrades(0);
 
-        if (afforded)
-            SpawnAutoClicker();
+        for (int i = 0; i < afforded.Length; i++)
+        {
+            if (afforded[i])
+            {
+                SpawnAutoClicker();
+            }
+            else
+                break;
+        }
     }
 
     public void BuyUpgrade1()
     {
-        BuyUpgrade(1);
+        BuyUpgrades(1);
     }
 
     public void BuyUpgrade2()
     {
-        BuyUpgrade(2);
+        BuyUpgrades(2);
     }
 
     public void BuyUpgrade3()
     {
-        BuyUpgrade(3);
+        BuyUpgrades(3);
     }
 
     public void BuyUpgrade4()
     {
-        BuyUpgrade(4);
+        BuyUpgrades(4);
     }
 
     #endregion
 
-    private bool BuyUpgrade(int upgradeID)
+    private bool BuyUpgrade(ulong upgradeID)
     {
         if (upgradeData[upgradeID] != null)
         {
@@ -108,14 +146,15 @@ public class UpgradeManager : MonoBehaviour
             {
                 CookieHandler.cookies -= upgradeData[upgradeID].updatedCost;
 
-                if ((int)(upgradeData[upgradeID].updatedCost * costScaling) <= upgradeData[upgradeID].updatedCost + minimumCostIncrease)
+                if ((ulong)(upgradeData[upgradeID].updatedCost * costScaling) <= upgradeData[upgradeID].updatedCost + minimumCostIncrease)
                     upgradeData[upgradeID].updatedCost += minimumCostIncrease;
                 else
-                    upgradeData[upgradeID].updatedCost = (int)(upgradeData[upgradeID].updatedCost * costScaling);
+                    upgradeData[upgradeID].updatedCost = (ulong)(upgradeData[upgradeID].updatedCost * costScaling);
 
                 upgradeData[upgradeID].cost.text = upgradeData[upgradeID].updatedCost.ToString();
 
-                IdleCookies.cookiesPerSecond += upgradeData[upgradeID].CPSorCPCIncrease;
+                //IdleCookies.cookiesPerSecond += upgradeData[upgradeID].CPSorCPCIncrease;
+                IdleCookies.IncreaseCps(upgradeData[upgradeID].CPSorCPCIncrease);
 
                 if (JustBoughtAThing != null)
                     JustBoughtAThing.Invoke();
@@ -126,23 +165,54 @@ public class UpgradeManager : MonoBehaviour
         return false;
     }
 
+    public bool[] BuyUpgrades(ulong functionID)
+    {
+        bool[] afforded = new bool[100];
+
+        if (buy10)
+        {
+            for (ulong i = 0; i < 10; i++)
+            {
+                afforded[i] = BuyUpgrade(functionID);
+            }
+        }
+        else if (buy100)
+        {
+            for (ulong i = 0; i < 100; i++)
+            {
+                afforded[i] = BuyUpgrade(functionID);
+            }
+        }
+        else
+        {
+            afforded[0] = BuyUpgrade(functionID);
+        }
+
+        return afforded;
+    }
+
+    float retardRatio;
     public void SpawnAutoClicker()
     {
-        GameObject clicker = Instantiate(autoClicker, autoClickerHolder.position - new Vector3(Mathf.Cos((currentAngle + 90f) * Mathf.Deg2Rad),
+        GameObject spawnedClicker = Instantiate(autoClicker,
+            autoClickerHolder.position - new Vector3(Mathf.Cos((currentAngle + 90f) * Mathf.Deg2Rad),
             Mathf.Sin((currentAngle + 90f) * Mathf.Deg2Rad)) * currentRadius, Quaternion.Euler(0, 0, currentAngle));
         currentAngle += 360 / autoClickersPerLevel;
 
-        clicker.transform.SetParent(autoClickerHolder);
-        autoClickerClickOffset = autoClickerCounter % 2 == 0 ? 0.5f : 0f;
-        clicker.GetComponent<ClickerBehaviour>().offset = autoClickerClickOffset;
+        spawnedClicker.transform.SetParent(autoClickerHolder);
+        autoClickerClickOffset = (autoClickerCounter / autoClickersPerLevel) * (2 * activeClickersPerLevel * Mathf.PI); // multipling with PI because Unity uses radians and the amount is pretty much active clickers * 2
+        spawnedClicker.GetComponent<ClickerBehaviour>().offset = autoClickerClickOffset;
 
         autoClickerCounter++;
         if (autoClickerCounter >= autoClickersPerLevel)
         {
             autoClickerCounter = 0;
             autoClickerOffset += autoClickerOffsetAmount;
-            currentAngle = autoClickerOffset;
             currentRadius += radiusIncrease;
+            retardRatio += 1.618f;
+            currentAngle = 0f;
+            currentAngle += retardRatio;
+            autoClickersPerLevel += autoClickerPerLevelIncrease;
         }
     }
 }

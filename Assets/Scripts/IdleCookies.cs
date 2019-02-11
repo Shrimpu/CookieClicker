@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class IdleCookies : MonoBehaviour
 {
-    public event System.Action IdleCookieGained;
+    public static event System.Action IdleCookieGained;
+    public static event System.Action CpsChanged;
 
-    public static int cookiesPerSecond = 10000;
+    public static ulong cookiesPerSecond = 0;
+    public static ulong cookieBoost = 1;
+    [Range(0f, 1f)]
+    public float executionTimesPerSecond = 0.1f;
 
     void Start()
     {
@@ -18,18 +22,33 @@ public class IdleCookies : MonoBehaviour
         float cookiesOnHold = 0;
         while (true)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(executionTimesPerSecond);
 
-            cookiesOnHold = cookiesOnHold + (cookiesPerSecond * 0.1f);
+            cookiesOnHold += (cookiesPerSecond * executionTimesPerSecond);
 
             if (cookiesOnHold >= 1f)
             {
-                CookieHandler.cookies += (int)cookiesOnHold;
-                cookiesOnHold = cookiesOnHold % 1f;
+                CookieHandler.cookies += (ulong)cookiesOnHold;
+                cookiesOnHold = cookiesOnHold % 1f; // saves the decimals that wern't added due to the cast to ulong
 
                 if (IdleCookieGained != null)
                     IdleCookieGained.Invoke();
             }
         }
+    }
+
+    public static void ChangeCpsMult(ulong mult)
+    {
+        cookiesPerSecond *= mult;
+        cookieBoost *= mult;
+        if (CpsChanged != null)
+            CpsChanged.Invoke();
+    }
+
+    public static void IncreaseCps(ulong amount)
+    {
+        cookiesPerSecond += amount * cookieBoost;
+        if (CpsChanged != null)
+            CpsChanged.Invoke();
     }
 }

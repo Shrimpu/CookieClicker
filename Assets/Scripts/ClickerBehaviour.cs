@@ -10,6 +10,20 @@ public class ClickerBehaviour : MonoBehaviour
 
     private Vector3 startPos;
 
+    float Curve
+    {
+        get
+        {
+            float value = Mathf.Sin(Time.time + offset);
+            if (value < 0.995f)
+                value = 0f;
+            else
+                value = 1f;
+            return value;
+        }
+        set { Curve = value; }
+    }
+
     private void Start()
     {
         startPos = transform.localPosition;
@@ -17,6 +31,6 @@ public class ClickerBehaviour : MonoBehaviour
 
     void Update()
     {
-        transform.localPosition = transform.up * -(Mathf.Abs(Mathf.Sin(Time.time + offset)) * intensity) + startPos;
+        transform.localPosition = transform.up * Curve * intensity + startPos;
     }
 }

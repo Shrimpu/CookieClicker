@@ -6,9 +6,11 @@ using UnityEngine;
 public class ClicksAchievement : ScriptableObject
 {
     public new string name;
-    public Sprite sprite;
     public int clicksRequired;
+    public ulong cpcIncrease = 0;
 
-    [Multiline]
     public string description;
+
+    [HideInInspector]
+    public bool achievementGot;
 }

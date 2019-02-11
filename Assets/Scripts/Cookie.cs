@@ -6,10 +6,10 @@ using UnityEngine;
 public class Cookie : MonoBehaviour
 {
     public event Action TotalClicks;
-    public delegate void ClickEventDelegate(int cookiesPoesClick);
+    public delegate void ClickEventDelegate(ulong cookiesPerClick);
     public ClickEventDelegate ClickEvent;
 
-    public int cookiesPerClick;
+    public static ulong cookiesPerClick = 1;
 
     private void OnMouseDown()
     {
@@ -18,21 +18,21 @@ public class Cookie : MonoBehaviour
 
     private void OnMouseUp()
     {
-        transform.localScale += new Vector3(0.25f, 0.25f, 0);
+        transform.localScale = new Vector3(1f, 1f, 1f);
     }
 
     private void Clicked()
     {
-        transform.localScale -= new Vector3(0.25f, 0.25f, 0); // create animation
+        transform.localScale = new Vector3(0.75f, 0.75f, 1f);
 
         if (ClickEvent != null)
+        {
             ClickEvent(cookiesPerClick);
-        if (TotalClicks != null)
-            TotalClicks.Invoke();
-    }
+        }
 
-    private void IncreaseCookiesPerClick(int amount)
-    {
-        cookiesPerClick += amount;
+        if (TotalClicks != null)
+        {
+            TotalClicks.Invoke();
+        }
     }
 }

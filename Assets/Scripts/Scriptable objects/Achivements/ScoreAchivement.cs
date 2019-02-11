@@ -6,9 +6,10 @@ using UnityEngine;
 public class ScoreAchievement : ScriptableObject
 {
     public new string name;
-    public Sprite sprite;
-    public int CookiesRequired;
+    public ulong CookiesRequired;
 
-    [Multiline]
     public string description;
+
+    [HideInInspector]
+    public bool achievementGot;
 }

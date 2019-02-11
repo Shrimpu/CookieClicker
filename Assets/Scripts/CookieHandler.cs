@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class CookieHandler : MonoBehaviour
 {
-    public static int cookies;
+    public static ulong cookies;
 
     void Start()
     {
         GameObject.FindGameObjectWithTag("Cookie").GetComponent<Cookie>().ClickEvent += AddCookies;
     }
 
-    void AddCookies(int cookiesToAdd)
+    void AddCookies(ulong cookiesToAdd)
     {
         cookies += cookiesToAdd;
     }
