@@ -8,7 +8,7 @@ public class CookieHandler : MonoBehaviour
 
     void Start()
     {
-        GameObject.FindGameObjectWithTag("Cookie").GetComponent<Cookie>().ClickEvent += AddCookies;
+        Cookie.ClickEvent += AddCookies;
     }
 
     void AddCookies(ulong cookiesToAdd)

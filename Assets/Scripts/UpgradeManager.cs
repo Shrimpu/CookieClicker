@@ -153,7 +153,6 @@ public class UpgradeManager : MonoBehaviour
 
                 upgradeData[upgradeID].cost.text = upgradeData[upgradeID].updatedCost.ToString();
 
-                //IdleCookies.cookiesPerSecond += upgradeData[upgradeID].CPSorCPCIncrease;
                 IdleCookies.IncreaseCps(upgradeData[upgradeID].CPSorCPCIncrease);
 
                 if (JustBoughtAThing != null)

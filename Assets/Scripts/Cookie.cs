@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Cookie : MonoBehaviour
 {
-    public event Action TotalClicks;
+    public static event Action TotalClicks;
     public delegate void ClickEventDelegate(ulong cookiesPerClick);
-    public ClickEventDelegate ClickEvent;
+    public static ClickEventDelegate ClickEvent;
 
     public static ulong cookiesPerClick = 1;
 

@@ -22,9 +22,7 @@ public class Achievements : MonoBehaviour
     {
         ResetAchievements();
 
-        Cookie cookie = FindObjectOfType<Cookie>();
-
-        cookie.TotalClicks += AddToClickTotal;
+        Cookie.TotalClicks += AddToClickTotal;
         IdleCookies.IdleCookieGained += CheckScoreAchievements;
         IdleCookies.CpsChanged += CheckCpsAchievements;
         UpgradeManager.JustBoughtAThing += AddToBoughtTotal;
