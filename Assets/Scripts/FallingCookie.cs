@@ -12,6 +12,7 @@ public class FallingCookie : MonoBehaviour
     float width;
     float fallThing;
     SpriteRenderer sr;
+    SpriteRenderer[] childsr;
 
     [HideInInspector]
     public bool die = false;
@@ -22,6 +23,12 @@ public class FallingCookie : MonoBehaviour
         height = cam.orthographicSize;
         width = height * cam.aspect;
         sr = GetComponent<SpriteRenderer>();
+
+        childsr = new SpriteRenderer[transform.childCount];
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            childsr[i] = transform.GetChild(i).GetComponent<SpriteRenderer>();
+        }
 
         SetNewPos();
     }
@@ -43,14 +50,21 @@ public class FallingCookie : MonoBehaviour
 
     void SetNewPos()
     {
-        fallSpeed = Random.Range(minMaxFallSpeed.x, minMaxFallSpeed.y);
-        fallThing = (fallSpeed - minMaxFallSpeed.x) / minMaxFallSpeed.y;
-        float scale = minMaxScale.y * fallThing + minMaxScale.x;
-        float alpha = (255 - minAlpha) * fallThing;
+        float maxPercentage = Random.Range(0f, 1f);
+        fallSpeed = Mathf.Abs(minMaxFallSpeed.x - minMaxFallSpeed.y) * maxPercentage + minMaxFallSpeed.x;
+        float scale = Mathf.Abs(minMaxScale.x - minMaxScale.y) * maxPercentage + minMaxScale.x;
+        float alpha = ((255 - minAlpha) * maxPercentage + minAlpha) / 255f;
+        int layer = (int)(100f * maxPercentage) - 100 + -1;
 
-        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, (minAlpha + alpha) / 255f);
+        sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, alpha);
         transform.position = new Vector2(Random.Range(-width, width), height);
         transform.localScale = new Vector3(scale, scale, scale);
         transform.rotation = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
+        sr.sortingOrder = layer;
+
+        for (int i = 0; i < childsr.Length; i++)
+        {
+            childsr[i].sortingOrder = layer;
+        }
     }
 }
