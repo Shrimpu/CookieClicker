@@ -136,7 +136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26429053}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.99, y: 1.17, z: 0}
+  m_LocalPosition: {x: -1, y: 1.17, z: 0}
   m_LocalScale: {x: 3.7644, y: 3.7644, z: 1}
   m_Children:
   - {fileID: 1209281166}
@@ -501,7 +501,7 @@ MonoBehaviour:
     cost: {fileID: 0}
     updatedCost: 0
   minimumCostIncrease: 5
-  costScaling: 0.04
+  costScaling: 0.02
   buy10: 0
   buy100: 0
   autoClickersPerLevel: 50
@@ -2246,7 +2246,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cookie: {fileID: 2686526666867597284, guid: 6495b04736d5cdf4eae5ad4ecd585ff8, type: 3}
   cookieNewNumber: 5
-  cookieMaxNumber: 250
+  cookieMaxNumber: 300
+  maxCookiesPerClick: 15
+  maxCookiesPerClickOnComputerBreakdownAndTheFramesGoVeryLow: 5
+  maxCookiesPerClickOnComputerBreakdownAndTheFramesGoVeryLowEXTRADISASTER: 0
 --- !u!1 &1004977637
 GameObject:
   m_ObjectHideFlags: 0
@@ -2600,6 +2603,7 @@ GameObject:
   - component: {fileID: 1209281165}
   - component: {fileID: 1209281167}
   - component: {fileID: 1209281168}
+  - component: {fileID: 1209281169}
   m_Layer: 0
   m_Name: Cookie
   m_TagString: Cookie
@@ -2687,6 +2691,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d32ebe1e055914ab9e28a7620ccb9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Inputs:
+  - Q
+  - W
+  - E
+  - A
+  - S
+  - D
+  - Z
+  - X
+  - C
+  - Space
 --- !u!60 &1209281168
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2718,6 +2733,25 @@ PolygonCollider2D:
       - {x: 0.00000004371139, y: -0.5}
       - {x: 0.43301272, y: -0.24999996}
       - {x: 0.43301272, y: 0.24999996}
+--- !u!95 &1209281169
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209281164}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8c29e1a16956990428689530e19d8fcf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1259938077
 GameObject:
   m_ObjectHideFlags: 0
@@ -3594,6 +3628,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bf48b32c35239e64287acab60d6a071e, type: 2}
   - {fileID: 11400000, guid: ed198d9ed8eefbe4981c5ce3ed21701e, type: 2}
   - {fileID: 11400000, guid: 4e0355f6baf469245adbb41a8e730d93, type: 2}
+  - {fileID: 11400000, guid: 0789c76fd1c05bf49857ec5f65b02a4b, type: 2}
   scoreAchievements:
   - {fileID: 11400000, guid: fc09fb1b9457b904992a9b1926f8e4ad, type: 2}
   - {fileID: 11400000, guid: a122652f75260c14fbeb1256086b0e7e, type: 2}
@@ -3630,6 +3665,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4cc7228ac371a1249ae84584c41e0e03, type: 2}
   - {fileID: 11400000, guid: 4b06d193bbbd6484c855f132de691409, type: 2}
   - {fileID: 11400000, guid: 49a4d737cb595a146acb594d27668a56, type: 2}
+  frameDropAchievement:
+  - {fileID: 11400000, guid: a9eca3e6696103940923f2b9e4424bf8, type: 2}
+  frameDropAchievementSevere:
+  - {fileID: 11400000, guid: e72a1bbd0cfe9a648bdc642d9bf91789, type: 2}
 --- !u!4 &1745542151
 Transform:
   m_ObjectHideFlags: 0

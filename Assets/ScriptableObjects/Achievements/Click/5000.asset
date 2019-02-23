@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: this is a problem
   clicksRequired: 5000
-  cpcIncrease: 100
+  cpcIncrease: 1
   description: 5000 clicks and a injured finger
   achievementGot: 0

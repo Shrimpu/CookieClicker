@@ -10,7 +10,6 @@ public class FallingCookie : MonoBehaviour
     float fallSpeed;
     float height;
     float width;
-    float fallThing;
     SpriteRenderer sr;
     SpriteRenderer[] childsr;
 

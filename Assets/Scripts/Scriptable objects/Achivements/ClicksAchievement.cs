@@ -6,7 +6,7 @@ using UnityEngine;
 public class ClicksAchievement : ScriptableObject
 {
     public new string name;
-    public int clicksRequired;
+    public ulong clicksRequired;
     public ulong cpcIncrease = 0;
 
     public string description;

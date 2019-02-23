@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Go play a real game
   clicksRequired: 2500
-  cpcIncrease: 100
+  cpcIncrease: 10
   description: 2500 clicks
   achievementGot: 0

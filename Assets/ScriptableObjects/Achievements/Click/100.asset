@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Many a click
   clicksRequired: 100
-  cpcIncrease: 2
+  cpcIncrease: 1
   description: 100 clicks
   achievementGot: 0

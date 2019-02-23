@@ -28,7 +28,7 @@ public class IdleCookies : MonoBehaviour
 
             if (cookiesOnHold >= 1f)
             {
-                CookieHandler.cookies += (ulong)cookiesOnHold;
+                CookieHandler.AddCookies((ulong)Mathf.Floor(cookiesOnHold));
                 cookiesOnHold = cookiesOnHold % 1f; // saves the decimals that wern't added due to the cast to ulong
 
                 if (IdleCookieGained != null)

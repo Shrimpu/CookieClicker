@@ -79,7 +79,7 @@ public class DisplayText : MonoBehaviour
 
     private void UpdateIdleCookies()
     {
-        CookiesPerClickText.text = IdleCookies.cookiesPerSecond.ToString();
+        CookiesPerClickText.text = IdleCookies.cookiesPerSecond.ToString() + " Cps";
     }
 
     class achievementInfo

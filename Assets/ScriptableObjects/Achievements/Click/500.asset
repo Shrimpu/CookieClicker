@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: passionate for clicks
   clicksRequired: 500
-  cpcIncrease: 5
+  cpcIncrease: 0
   description: 500 clicks
   achievementGot: 0

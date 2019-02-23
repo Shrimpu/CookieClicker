@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Chronic Clicker
   clicksRequired: 50
-  cpcIncrease: 0
+  cpcIncrease: 1
   description: 50 clicks
   achievementGot: 0

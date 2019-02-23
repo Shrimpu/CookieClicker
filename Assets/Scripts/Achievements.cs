@@ -5,10 +5,8 @@ using UnityEngine;
 
 public class Achievements : MonoBehaviour
 {
-    int clickTotal;
+    ulong clickTotal;
     ulong upgradesBought;
-
-    public event System.Action CheckIfAchievementGet;
 
     public delegate void OnAchivementGetDelegate(string _name, string description);
     public OnAchivementGetDelegate OnAchivementGet;
@@ -17,20 +15,21 @@ public class Achievements : MonoBehaviour
     public ScoreAchievement[] scoreAchievements;
     public ScoreAchievement[] cpsAchievements;
     public UpgradesBoughtAchievement[] numOfUpgradesAchievements;
+    public ScoreAchievement[] frameDropAchievement;
+    public ScoreAchievement[] frameDropAchievementSevere;
 
     void Start()
     {
         ResetAchievements();
 
         Cookie.TotalClicks += AddToClickTotal;
+        Cookie.TotalClicks += CheckClickAchievements;
         IdleCookies.IdleCookieGained += CheckScoreAchievements;
         IdleCookies.CpsChanged += CheckCpsAchievements;
         UpgradeManager.JustBoughtAThing += AddToBoughtTotal;
-
-        CheckIfAchievementGet += CheckClickAchievements;
-        CheckIfAchievementGet += CheckScoreAchievements;
-        CheckIfAchievementGet += CheckCpsAchievements;
-        CheckIfAchievementGet += CheckUpgradeAchievements;
+        UpgradeManager.JustBoughtAThing += CheckUpgradeAchievements;
+        FallingCookiesManager.Under30Fps += CheckFrameAchievements;
+        FallingCookiesManager.Under15Fps += CheckSevereFrameAchievements;
     }
 
     private void ResetAchievements()
@@ -51,75 +50,110 @@ public class Achievements : MonoBehaviour
         {
             u.achievementGot = false;
         }
+        foreach (ScoreAchievement fa in frameDropAchievement)
+        {
+            fa.achievementGot = false;
+        }
+        foreach (ScoreAchievement fa in frameDropAchievementSevere)
+        {
+            fa.achievementGot = false;
+        }
     }
 
     public void AddToClickTotal()
     {
         clickTotal++;
-        CheckIfAchievementGet.Invoke();
     }
 
     public void AddToBoughtTotal()
     {
         upgradesBought++;
-        CheckIfAchievementGet.Invoke();
     }
 
     #region Achievements Checks
 
+    int clickAchievementsGot = 0;
     void CheckClickAchievements()
     {
-        foreach (ClicksAchievement achievement in clickAchievements)
+        for (int i = clickAchievementsGot; i < clickAchievements.Length; i++)
         {
-            if (achievement.clicksRequired == clickTotal)
+            if (clickAchievements[i].clicksRequired == clickTotal)
             {
-                DisplayAchievement(achievement.name, achievement.description);
-                Cookie.cookiesPerClick += achievement.cpcIncrease;
+                DisplayAchievement(clickAchievements[i].name, clickAchievements[i].description);
+                Cookie.cookiesPerClick += clickAchievements[i].cpcIncrease;
+                clickAchievementsGot = i;
                 break;
             }
         }
     }
 
+    int scoreAchievementsGot = 0;
     void CheckScoreAchievements()
     {
-        foreach (ScoreAchievement achievement in scoreAchievements)
+        for (int i = scoreAchievementsGot; i < scoreAchievements.Length; i++)
         {
-            if (achievement.CookiesRequired <= CookieHandler.cookies && !achievement.achievementGot)
+            if (scoreAchievements[i].CookiesRequired <= CookieHandler.totalCookies && !scoreAchievements[i].achievementGot)
             {
-                achievement.achievementGot = true;
-                DisplayAchievement(achievement.name, achievement.description);
-            }
-            else if (achievement.CookiesRequired > CookieHandler.cookies)
+                scoreAchievements[i].achievementGot = true;
+                DisplayAchievement(scoreAchievements[i].name, scoreAchievements[i].description);
+                scoreAchievementsGot = i;
                 break;
+            }
         }
     }
 
+    int cpsAchievementsGot = 0;
     void CheckCpsAchievements()
     {
-        foreach (ScoreAchievement achievement in cpsAchievements)
+        for (int i = cpsAchievementsGot; i < cpsAchievements.Length; i++)
         {
-            if (achievement.CookiesRequired <= IdleCookies.cookiesPerSecond && !achievement.achievementGot)
+            if (cpsAchievements[i].CookiesRequired <= IdleCookies.cookiesPerSecond && !cpsAchievements[i].achievementGot)
             {
-                achievement.achievementGot = true;
-                DisplayAchievement(achievement.name, achievement.description);
-            }
-            else if (achievement.CookiesRequired > IdleCookies.cookiesPerSecond)
+                cpsAchievements[i].achievementGot = true;
+                DisplayAchievement(cpsAchievements[i].name, cpsAchievements[i].description);
+                cpsAchievementsGot = i;
                 break;
+            }
         }
     }
 
+    int upgradeAchievementsGot = 0;
     void CheckUpgradeAchievements()
     {
-        foreach (UpgradesBoughtAchievement achievement in numOfUpgradesAchievements)
+        for (int i = upgradeAchievementsGot; i < numOfUpgradesAchievements.Length; i++)
         {
-            if (achievement.upgradesRequired <= upgradesBought && !achievement.achievementGot)
+            if (numOfUpgradesAchievements[i].upgradesRequired <= upgradesBought && !numOfUpgradesAchievements[i].achievementGot)
             {
-                achievement.achievementGot = true;
-                IdleCookies.ChangeCpsMult(achievement.cpsMult);
-                DisplayAchievement(achievement.name, achievement.description);
-            }
-            if (achievement.upgradesRequired > upgradesBought)
+                numOfUpgradesAchievements[i].achievementGot = true;
+                IdleCookies.ChangeCpsMult(numOfUpgradesAchievements[i].cpsMult);
+                DisplayAchievement(numOfUpgradesAchievements[i].name, numOfUpgradesAchievements[i].description);
+                upgradeAchievementsGot = i;
                 break;
+            }
+        }
+    }
+
+    void CheckFrameAchievements()
+    {
+        foreach (ScoreAchievement fa in frameDropAchievement)
+        {
+            if (fa.CookiesRequired == (ulong)FallingCookiesManager.fpsDrop)
+            {
+                DisplayAchievement(fa.name, fa.description);
+                break;
+            }
+        }
+    }
+
+    void CheckSevereFrameAchievements()
+    {
+        foreach (ScoreAchievement fa in frameDropAchievementSevere)
+        {
+            if (fa.CookiesRequired == (ulong)FallingCookiesManager.fpsDropSevere)
+            {
+                DisplayAchievement(fa.name, fa.description);
+                break;
+            }
         }
     }
 

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 69
   clicksRequired: 69
-  cpcIncrease: 1
+  cpcIncrease: 0
   description: It's the funny number
   achievementGot: 0
