@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\FallingCookie.cs" />
     <Compile Include="Assets\Scripts\FallingCookiesManager.cs" />
     <Compile Include="Assets\Scripts\IdleCookies.cs" />
+    <Compile Include="Assets\Scripts\SaveLoad.cs" />
     <Compile Include="Assets\Scripts\Scriptable objects\Achivements\ClicksAchievement.cs" />
     <Compile Include="Assets\Scripts\Scriptable objects\Achivements\ScoreAchivement.cs" />
     <Compile Include="Assets\Scripts\Scriptable objects\Achivements\UpgradesBoughtAchievement.cs" />

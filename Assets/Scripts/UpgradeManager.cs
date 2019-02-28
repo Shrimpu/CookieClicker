@@ -19,6 +19,7 @@ public class UpgradeManager : MonoBehaviour
         public ulong startCost;
         [Tooltip("CPS = Cookies per Second. CPC = Cookies per Click")]
         public ulong CPSorCPCIncrease;
+        public ulong upgradesOfTypeBought;
 
         [HideInInspector]
         public Text _name;
@@ -39,7 +40,6 @@ public class UpgradeManager : MonoBehaviour
     // Autoclicker fields
     [Range(1, 100)]
     public float autoClickersPerLevel = 20;
-    public ulong autoClickerPerLevelIncrease = 3;
     [Range(1, 10)]
     public float activeClickersPerLevel = 3f;
     private ulong autoClickerCounter = 0;
@@ -110,6 +110,7 @@ public class UpgradeManager : MonoBehaviour
             if (afforded[i])
             {
                 SpawnAutoClicker();
+                upgradeData[0].upgradesOfTypeBought++;
             }
             else
                 break;
@@ -118,33 +119,78 @@ public class UpgradeManager : MonoBehaviour
 
     public void BuyUpgrade1()
     {
-        BuyUpgrades(1);
+        bool[] afforded = new bool[100];
+        afforded = BuyUpgrades(1);
+
+        for (int i = 0; i < afforded.Length; i++)
+        {
+            if (afforded[i])
+            {
+                upgradeData[1].upgradesOfTypeBought++;
+            }
+            else
+                break;
+        }
     }
 
     public void BuyUpgrade2()
     {
-        BuyUpgrades(2);
+        bool[] afforded = new bool[100];
+        afforded = BuyUpgrades(2);
+
+        for (int i = 0; i < afforded.Length; i++)
+        {
+            if (afforded[i])
+            {
+                upgradeData[2].upgradesOfTypeBought++;
+            }
+            else
+                break;
+        }
     }
 
     public void BuyUpgrade3()
     {
-        BuyUpgrades(3);
+        bool[] afforded = new bool[100];
+        afforded = BuyUpgrades(3);
+
+        for (int i = 0; i < afforded.Length; i++)
+        {
+            if (afforded[i])
+            {
+                upgradeData[3].upgradesOfTypeBought++;
+            }
+            else
+                break;
+        }
     }
 
     public void BuyUpgrade4()
     {
-        BuyUpgrades(4);
+        bool[] afforded = new bool[100];
+        afforded = BuyUpgrades(4);
+
+        for (int i = 0; i < afforded.Length; i++)
+        {
+            if (afforded[i])
+            {
+                upgradeData[4].upgradesOfTypeBought++;
+            }
+            else
+                break;
+        }
     }
 
     #endregion
 
-    private bool BuyUpgrade(ulong upgradeID)
+    private bool BuyUpgrade(ulong upgradeID, bool free = false)
     {
         if (upgradeData[upgradeID] != null)
         {
-            if (CookieHandler.cookies >= upgradeData[upgradeID].updatedCost)
+            if (CookieHandler.cookies >= upgradeData[upgradeID].updatedCost || free)
             {
-                CookieHandler.cookies -= upgradeData[upgradeID].updatedCost;
+                if (!free)
+                    CookieHandler.cookies -= upgradeData[upgradeID].updatedCost;
 
                 if ((ulong)(upgradeData[upgradeID].updatedCost * costScaling) <= upgradeData[upgradeID].updatedCost + minimumCostIncrease)
                     upgradeData[upgradeID].updatedCost += minimumCostIncrease;
@@ -155,8 +201,9 @@ public class UpgradeManager : MonoBehaviour
 
                 IdleCookies.IncreaseCps(upgradeData[upgradeID].CPSorCPCIncrease);
 
-                if (JustBoughtAThing != null)
-                    JustBoughtAThing.Invoke();
+                if (!free)
+                    if (JustBoughtAThing != null)
+                        JustBoughtAThing.Invoke();
 
                 return true;
             }
@@ -190,6 +237,26 @@ public class UpgradeManager : MonoBehaviour
         return afforded;
     }
 
+    public void buyUpgradesOnLoad(ulong[] upgradeID, ulong[] amount)
+    {
+        ResetAll();
+
+        for (int i = 0; i < upgradeID.Length; i++)
+        {
+            if (amount != null)
+            {
+                upgradeData[i].upgradesOfTypeBought = amount[i];
+                for (int j = 0; j < (int)amount[i]; j++)
+                {
+                    BuyUpgrade(upgradeID[i], true);
+                    if (i == 0)
+                        SpawnAutoClicker();
+                }
+            }
+            else break;
+        }
+    }
+
     float retardRatio;
     public void SpawnAutoClicker()
     {
@@ -211,7 +278,30 @@ public class UpgradeManager : MonoBehaviour
             retardRatio += 1.618f;
             currentAngle = 0f;
             currentAngle += retardRatio;
-            autoClickersPerLevel += autoClickerPerLevelIncrease;
+        }
+    }
+
+    private void ResetAll()
+    {
+        ClickerBehaviour[] clickers = FindObjectsOfType<ClickerBehaviour>();
+        for (int i = 0; i < clickers.Length; i++)
+        {
+            Destroy(clickers[i].gameObject);
+        }
+
+        for (int i = 0; i < upgradeData.Length; i++)
+        {
+            upgradeData[i].updatedCost = upgradeData[i].startCost;
+
+            autoClickerOffset = 0f;
+            autoClickerCounter = 0;
+            currentAngle = 0f;
+            currentRadius = radius;
+
+            upgradeData[i].upgradesOfTypeBought = 0;
+
+            if (JustBoughtAThing != null)
+                JustBoughtAThing.Invoke();
         }
     }
 }

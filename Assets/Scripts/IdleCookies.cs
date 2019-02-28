@@ -9,8 +9,8 @@ public class IdleCookies : MonoBehaviour
 
     public static ulong cookiesPerSecond = 0;
     public static ulong cookieBoost = 1;
-    [Range(0f, 1f)]
-    public float executionTimesPerSecond = 0.1f;
+    [Range(1f, 50f)]
+    public float executionTimesPerSecond = 10f;
 
     void Start()
     {
@@ -22,9 +22,9 @@ public class IdleCookies : MonoBehaviour
         float cookiesOnHold = 0;
         while (true)
         {
-            yield return new WaitForSeconds(executionTimesPerSecond);
+            yield return new WaitForSeconds(1f / executionTimesPerSecond);
 
-            cookiesOnHold += (cookiesPerSecond * executionTimesPerSecond);
+            cookiesOnHold += (cookiesPerSecond / executionTimesPerSecond);
 
             if (cookiesOnHold >= 1f)
             {

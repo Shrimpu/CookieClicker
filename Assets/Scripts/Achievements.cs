@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Achievements : MonoBehaviour
 {
-    ulong clickTotal;
-    ulong upgradesBought;
+    public static ulong clickTotal;
+    public static ulong upgradesBought;
 
     public delegate void OnAchivementGetDelegate(string _name, string description);
     public OnAchivementGetDelegate OnAchivementGet;
@@ -32,7 +32,7 @@ public class Achievements : MonoBehaviour
         FallingCookiesManager.Under15Fps += CheckSevereFrameAchievements;
     }
 
-    private void ResetAchievements()
+    public void ResetAchievements()
     {
         foreach (ClicksAchievement c in clickAchievements)
         {
@@ -58,6 +58,11 @@ public class Achievements : MonoBehaviour
         {
             fa.achievementGot = false;
         }
+
+        clickAchievementsGot = 0;
+        scoreAchievementsGot = 0;
+        cpsAchievementsGot = 0;
+        upgradeAchievementsGot = 0;
     }
 
     public void AddToClickTotal()

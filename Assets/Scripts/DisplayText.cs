@@ -14,6 +14,7 @@ public class DisplayText : MonoBehaviour
 
     bool displayingAchievement;
     List<achievementInfo> achievementQueue = new List<achievementInfo>();
+    List<achievementInfo> achievementsDisplayed = new List<achievementInfo>();
     Cookie cookieScript;
 
     private void Start()
@@ -36,14 +37,23 @@ public class DisplayText : MonoBehaviour
 
     private void AchievementTextDisplay(string text1, string text2)
     {
-        achievementQueue.Add(new achievementInfo()
+        achievementInfo toAdd = new achievementInfo
         {
             Name = text1,
             Description = text2
-        });
+        };
 
-        if (!displayingAchievement)
+        achievementQueue.Add(toAdd);
+
+        if (!displayingAchievement && !achievementsDisplayed.Contains(toAdd))
+        {
+            achievementsDisplayed.Add(toAdd);
             StartCoroutine(DisplayAchievement());
+        }
+        else
+        {
+            achievementQueue.RemoveAt(0);
+        }
     }
 
     IEnumerator DisplayAchievement()
