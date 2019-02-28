@@ -1,8 +1,8 @@
 Win64
 PlayerPath?
-C:/Users/joar.andersson/Documents/UnityProjects/CookieClicker/CookieClicker.exe
+C:/Users/joar.andersson/Documents/UnityProjects/CookieClicker/Build/CookieClicker.exe
 SceneListBegin?
-Assets/Scenes/SampleScene.unity
+Assets/Scenes/Cookies.unity
 SceneListEnd?
 b2734cb347f01635aa03c5a1d486298e Assembly-CSharp.dll:.SaveLoad
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.SpaceClicker

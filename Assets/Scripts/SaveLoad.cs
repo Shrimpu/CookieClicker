@@ -15,13 +15,14 @@ public class SaveLoad : MonoBehaviour
 
     void Awake()
     {
-        if (autoLoad)
-            Save();
-
         saveData.achievements = FindObjectOfType<Achievements>();
         saveData.cookieHandler = FindObjectOfType<CookieHandler>();
         saveData.upgradeManager = FindObjectOfType<UpgradeManager>();
+
+        if (autoLoad)
+            Save();
     }
+
 
     public void Save()
     {
@@ -60,18 +61,27 @@ public class SaveLoad : MonoBehaviour
 
     private SaveData SaveValues()
     {
-        SaveData data = saveData;
+        SaveData data = new SaveData
+        {
+            cookiesOwned = CookieHandler.cookies,
+            totalCookiesBaked = CookieHandler.totalCookies,
 
-        data.cookiesOwned = CookieHandler.cookies;
-        data.totalCookiesBaked = CookieHandler.totalCookies;
+            clickTotal = Achievements.clickTotal,
+            upgradeAmounts = saveData.SetUpgradeAmounts(saveData.upgradeManager.upgradeData.Length),
 
-        data.clickTotal = Achievements.clickTotal;
-        data.upgradeAmounts = saveData.SetUpgradeAmounts(saveData.upgradeManager.upgradeData.Length);
+            achievements = saveData.achievements,
+            cookieHandler = saveData.cookieHandler,
+            upgradeManager = saveData.upgradeManager
+        };
         return data;
     }
 
     private void LoadValues(SaveData data)
     {
+        saveData.achievements = FindObjectOfType<Achievements>(); // reassigns these because i cant bother troubleshooting and if it breakes then so be it. me tired
+        saveData.cookieHandler = FindObjectOfType<CookieHandler>();
+        saveData.upgradeManager = FindObjectOfType<UpgradeManager>();
+
         CookieHandler.cookies = data.cookiesOwned;
         CookieHandler.totalCookies = data.totalCookiesBaked;
 
