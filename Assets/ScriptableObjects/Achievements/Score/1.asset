@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: 1
   m_EditorClassIdentifier: Assembly-CSharp::ScoreAchievement
-  image: {fileID: 21300000, guid: 64a72c2d67f72ae458b38b82c18deec5, type: 3}
+  image: {fileID: 21300000, guid: 55bd828754be9cd42a5ef2bd78599be5, type: 3}
   name: The loneliest cookie
   CookiesRequired: 1
   description: you have 1 cookie
-  achievementGot: 0
+  achievementGot: 1

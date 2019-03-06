@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: 1
   m_EditorClassIdentifier: Assembly-CSharp::ScoreAchievement
-  image: {fileID: 21300000, guid: 64a72c2d67f72ae458b38b82c18deec5, type: 3}
+  image: {fileID: 21300000, guid: 62688c6d0d17b6345aab6411e907d026, type: 3}
   name: Easy moneys
   CookiesRequired: 1
   description: You can go idle! how fun
-  achievementGot: 0
+  achievementGot: 1

@@ -24,6 +24,7 @@ public class Achievements : MonoBehaviour
 
         Cookie.TotalClicks += AddToClickTotal;
         Cookie.TotalClicks += CheckClickAchievements;
+        Cookie.TotalClicks += CheckScoreAchievements;
         IdleCookies.IdleCookieGained += CheckScoreAchievements;
         IdleCookies.CpsChanged += CheckCpsAchievements;
         UpgradeManager.JustBoughtAThing += AddToBoughtTotal;

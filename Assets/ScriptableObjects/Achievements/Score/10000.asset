@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: 10000
   m_EditorClassIdentifier: Assembly-CSharp::ScoreAchievement
-  image: {fileID: 21300000, guid: 64a72c2d67f72ae458b38b82c18deec5, type: 3}
+  image: {fileID: 21300000, guid: 55bd828754be9cd42a5ef2bd78599be5, type: 3}
   name: god bless
   CookiesRequired: 10000
   description: 10 000 cookies baked
