@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: 20000
   m_EditorClassIdentifier: Assembly-CSharp::ScoreAchievement
+  image: {fileID: 21300000, guid: 64a72c2d67f72ae458b38b82c18deec5, type: 3}
   name: We're gonna need a wider door
   CookiesRequired: 20000
   description: 20 000 cookies baked
-  achievementGot: 1
+  achievementGot: 0

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: 1000
   m_EditorClassIdentifier: Assembly-CSharp::ScoreAchievement
+  image: {fileID: 21300000, guid: 64a72c2d67f72ae458b38b82c18deec5, type: 3}
   name: EN GARDE OBESITY
   CookiesRequired: 1000
   description: 1000 cookies baked

@@ -8,7 +8,7 @@ public class Achievements : MonoBehaviour
     public static ulong clickTotal;
     public static ulong upgradesBought;
 
-    public delegate void OnAchivementGetDelegate(string _name, string description);
+    public delegate void OnAchivementGetDelegate(string _name, string description, Sprite image);
     public OnAchivementGetDelegate OnAchivementGet;
 
     public ClicksAchievement[] clickAchievements;
@@ -84,9 +84,9 @@ public class Achievements : MonoBehaviour
         {
             if (clickAchievements[i].clicksRequired == clickTotal)
             {
-                DisplayAchievement(clickAchievements[i].name, clickAchievements[i].description);
                 Cookie.cookiesPerClick += clickAchievements[i].cpcIncrease;
                 clickAchievementsGot = i;
+                DisplayAchievement(clickAchievements[i].name, clickAchievements[i].description, clickAchievements[i].image);
                 break;
             }
         }
@@ -100,8 +100,8 @@ public class Achievements : MonoBehaviour
             if (scoreAchievements[i].CookiesRequired <= CookieHandler.totalCookies && !scoreAchievements[i].achievementGot)
             {
                 scoreAchievements[i].achievementGot = true;
-                DisplayAchievement(scoreAchievements[i].name, scoreAchievements[i].description);
                 scoreAchievementsGot = i;
+                DisplayAchievement(scoreAchievements[i].name, scoreAchievements[i].description, scoreAchievements[i].image);
                 break;
             }
         }
@@ -115,8 +115,8 @@ public class Achievements : MonoBehaviour
             if (cpsAchievements[i].CookiesRequired <= IdleCookies.cookiesPerSecond && !cpsAchievements[i].achievementGot)
             {
                 cpsAchievements[i].achievementGot = true;
-                DisplayAchievement(cpsAchievements[i].name, cpsAchievements[i].description);
                 cpsAchievementsGot = i;
+                DisplayAchievement(cpsAchievements[i].name, cpsAchievements[i].description, cpsAchievements[i].image);
                 break;
             }
         }
@@ -131,8 +131,8 @@ public class Achievements : MonoBehaviour
             {
                 numOfUpgradesAchievements[i].achievementGot = true;
                 IdleCookies.ChangeCpsMult(numOfUpgradesAchievements[i].cpsMult);
-                DisplayAchievement(numOfUpgradesAchievements[i].name, numOfUpgradesAchievements[i].description);
                 upgradeAchievementsGot = i;
+                DisplayAchievement(numOfUpgradesAchievements[i].name, numOfUpgradesAchievements[i].description, numOfUpgradesAchievements[i].image);
                 break;
             }
         }
@@ -144,7 +144,8 @@ public class Achievements : MonoBehaviour
         {
             if (fa.CookiesRequired == (ulong)FallingCookiesManager.fpsDrop)
             {
-                DisplayAchievement(fa.name, fa.description);
+                fa.achievementGot = true;
+                DisplayAchievement(fa.name, fa.description, fa.image);
                 break;
             }
         }
@@ -156,7 +157,8 @@ public class Achievements : MonoBehaviour
         {
             if (fa.CookiesRequired == (ulong)FallingCookiesManager.fpsDropSevere)
             {
-                DisplayAchievement(fa.name, fa.description);
+                fa.achievementGot = true;
+                DisplayAchievement(fa.name, fa.description, fa.image);
                 break;
             }
         }
@@ -164,9 +166,9 @@ public class Achievements : MonoBehaviour
 
     #endregion
 
-    private void DisplayAchievement(string _name, string description)
+    private void DisplayAchievement(string _name, string description, Sprite image)
     {
         if (OnAchivementGet != null)
-            OnAchivementGet.Invoke(_name, description);
+            OnAchivementGet.Invoke(_name, description, image);
     }
 }

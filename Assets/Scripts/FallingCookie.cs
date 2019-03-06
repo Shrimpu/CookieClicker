@@ -56,7 +56,7 @@ public class FallingCookie : MonoBehaviour
         int layer = (int)(100f * maxPercentage) - 100 + -1;
 
         sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, alpha);
-        transform.position = new Vector2(Random.Range(-width, width), height);
+        transform.position = new Vector2(Random.Range(-width, width), height + 0.5f);
         transform.localScale = new Vector3(scale, scale, scale);
         transform.rotation = Quaternion.Euler(0, 0, Random.Range(0f, 360f));
         sr.sortingOrder = layer;

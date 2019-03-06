@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New ClicksAchievement", menuName = "Achievements/ClicksAchievement")]
 public class ClicksAchievement : ScriptableObject
 {
+    public Sprite image;
     public new string name;
     public ulong clicksRequired;
     public ulong cpcIncrease = 0;

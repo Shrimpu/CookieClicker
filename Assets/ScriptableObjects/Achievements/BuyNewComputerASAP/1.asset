@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: 1
   m_EditorClassIdentifier: Assembly-CSharp::ScoreAchievement
+  image: {fileID: 21300000, guid: 64a72c2d67f72ae458b38b82c18deec5, type: 3}
   name: BuyNewComputerASAP
   CookiesRequired: 1
   description: Under 15 frames isn't very cool
