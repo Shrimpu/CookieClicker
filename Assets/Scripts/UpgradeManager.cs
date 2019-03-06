@@ -26,6 +26,8 @@ public class UpgradeManager : MonoBehaviour
         [HideInInspector]
         public Text cost;
         [HideInInspector]
+        public Text amount;
+        [HideInInspector]
         public ulong updatedCost;
     }
 
@@ -64,6 +66,7 @@ public class UpgradeManager : MonoBehaviour
         {
             upgradeData[i]._name = upgradeData[i].upgrade.transform.GetChild(0).GetComponent<Text>();
             upgradeData[i].cost = upgradeData[i].upgrade.transform.GetChild(1).GetComponent<Text>();
+            upgradeData[i].amount = upgradeData[i].upgrade.transform.GetChild(2).GetComponent<Text>();
             upgradeData[i].updatedCost = upgradeData[i].startCost;
 
             if (upgradeData[i].upgradeName != "")
@@ -98,90 +101,28 @@ public class UpgradeManager : MonoBehaviour
 
     #endregion  
 
-    #region Upgrades
-
-    public void BuyUpgrade0()
+    public void UpgradeButton(int index)
     {
-        bool[] afforded = new bool[100];
-        afforded = BuyUpgrades(0);
-
-        for (int i = 0; i < afforded.Length; i++)
+        if (index < upgradeData.Length)
         {
-            if (afforded[i])
+
+            bool[] afforded = new bool[100];
+            afforded = BuyUpgrades((ulong)index);
+            if (index == 0)
             {
-                SpawnAutoClicker();
-                upgradeData[0].upgradesOfTypeBought++;
+                for (int i = 0; i < afforded.Length; i++)
+                {
+                    if (afforded[i])
+                    {
+                        SpawnAutoClicker();
+                    }
+                    else
+                        break;
+                }
             }
-            else
-                break;
         }
+        else print("index to large, button doesn't exists");
     }
-
-    public void BuyUpgrade1()
-    {
-        bool[] afforded = new bool[100];
-        afforded = BuyUpgrades(1);
-
-        for (int i = 0; i < afforded.Length; i++)
-        {
-            if (afforded[i])
-            {
-                upgradeData[1].upgradesOfTypeBought++;
-            }
-            else
-                break;
-        }
-    }
-
-    public void BuyUpgrade2()
-    {
-        bool[] afforded = new bool[100];
-        afforded = BuyUpgrades(2);
-
-        for (int i = 0; i < afforded.Length; i++)
-        {
-            if (afforded[i])
-            {
-                upgradeData[2].upgradesOfTypeBought++;
-            }
-            else
-                break;
-        }
-    }
-
-    public void BuyUpgrade3()
-    {
-        bool[] afforded = new bool[100];
-        afforded = BuyUpgrades(3);
-
-        for (int i = 0; i < afforded.Length; i++)
-        {
-            if (afforded[i])
-            {
-                upgradeData[3].upgradesOfTypeBought++;
-            }
-            else
-                break;
-        }
-    }
-
-    public void BuyUpgrade4()
-    {
-        bool[] afforded = new bool[100];
-        afforded = BuyUpgrades(4);
-
-        for (int i = 0; i < afforded.Length; i++)
-        {
-            if (afforded[i])
-            {
-                upgradeData[4].upgradesOfTypeBought++;
-            }
-            else
-                break;
-        }
-    }
-
-    #endregion
 
     private bool BuyUpgrade(ulong upgradeID, bool free = false)
     {
@@ -204,6 +145,9 @@ public class UpgradeManager : MonoBehaviour
                 if (!free)
                     if (JustBoughtAThing != null)
                         JustBoughtAThing.Invoke();
+
+                upgradeData[upgradeID].upgradesOfTypeBought++;
+                upgradeData[upgradeID].amount.text = upgradeData[upgradeID].upgradesOfTypeBought.ToString();
 
                 return true;
             }
@@ -245,7 +189,6 @@ public class UpgradeManager : MonoBehaviour
         {
             if (amount != null)
             {
-                upgradeData[i].upgradesOfTypeBought = amount[i];
                 for (int j = 0; j < (int)amount[i]; j++)
                 {
                     BuyUpgrade(upgradeID[i], true);

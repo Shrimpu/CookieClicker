@@ -29,11 +29,11 @@ public class FallingCookiesManager : MonoBehaviour
     {
         if (cookiesSpawned < cookieMaxNumber && Mathf.Floor(IdleCookies.cookiesPerSecond / 5) > cookiesSpawned)
         {
-            spawnCookies((int)Mathf.Floor(IdleCookies.cookiesPerSecond / 5f) - (int)cookiesSpawned);
+            SpawnCookies((int)Mathf.Floor(IdleCookies.cookiesPerSecond / 5f) - (int)cookiesSpawned);
         }
     }
 
-    void spawnCookies(int amount)
+    void SpawnCookies(int amount)
     {
         for (int i = 0; i < amount; i++)
         {
