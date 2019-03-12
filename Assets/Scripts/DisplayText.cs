@@ -22,6 +22,7 @@ public class DisplayText : MonoBehaviour
     {
         FindObjectOfType<Achievements>().OnAchivementGet += AchievementTextDisplay;
         Cookie.TotalClicks += DisplayScoreText;
+        CookieHandler.CookiesGained += DisplayScoreText;
 
         UpgradeManager.JustBoughtAThing += DisplayScoreText;
 

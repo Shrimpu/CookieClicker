@@ -13,12 +13,14 @@ public class UpgradeManager : MonoBehaviour
     [System.Serializable]
     public class UpgradeData
     {
+        public UpgradeEffect effect;
         [Tooltip("Requires two textobjects as children")]
         public Transform upgrade;
         public string upgradeName;
         public ulong startCost;
         [Tooltip("CPS = Cookies per Second. CPC = Cookies per Click")]
-        public ulong CPSorCPCIncrease;
+        public ulong increase;
+        [HideInInspector]
         public ulong upgradesOfTypeBought;
 
         [HideInInspector]
@@ -140,7 +142,7 @@ public class UpgradeManager : MonoBehaviour
 
                 upgradeData[upgradeID].cost.text = upgradeData[upgradeID].updatedCost.ToString();
 
-                IdleCookies.IncreaseCps(upgradeData[upgradeID].CPSorCPCIncrease);
+                upgradeData[upgradeID].effect.Do(upgradeData[upgradeID].increase);
 
                 if (!free)
                     if (JustBoughtAThing != null)

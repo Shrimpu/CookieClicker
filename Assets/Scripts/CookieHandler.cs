@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CookieHandler : MonoBehaviour
 {
+    public static event System.Action CookiesGained;
+
     public static ulong cookies;
     public static ulong totalCookies;
 
@@ -16,5 +18,8 @@ public class CookieHandler : MonoBehaviour
     {
         cookies += cookiesToAdd;
         totalCookies += cookiesToAdd;
+
+        if (CookiesGained != null)
+            CookiesGained.Invoke();
     }
 }

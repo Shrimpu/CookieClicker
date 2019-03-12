@@ -7,6 +7,7 @@ public class Achievements : MonoBehaviour
 {
     public static ulong clickTotal;
     public static ulong upgradesBought;
+    public bool resetAchievementsOnLoad;
 
     public delegate void OnAchivementGetDelegate(string _name, string description, Sprite image);
     public OnAchivementGetDelegate OnAchivementGet;
@@ -20,12 +21,13 @@ public class Achievements : MonoBehaviour
 
     void Start()
     {
-        ResetAchievements();
+        if (resetAchievementsOnLoad)
+            ResetAchievements();
 
         Cookie.TotalClicks += AddToClickTotal;
         Cookie.TotalClicks += CheckClickAchievements;
         Cookie.TotalClicks += CheckScoreAchievements;
-        IdleCookies.IdleCookieGained += CheckScoreAchievements;
+        CookieHandler.CookiesGained += CheckScoreAchievements;
         IdleCookies.CpsChanged += CheckCpsAchievements;
         UpgradeManager.JustBoughtAThing += AddToBoughtTotal;
         UpgradeManager.JustBoughtAThing += CheckUpgradeAchievements;

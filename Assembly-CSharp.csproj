@@ -71,11 +71,19 @@
     <Compile Include="Assets\Scripts\DisplayText.cs" />
     <Compile Include="Assets\Scripts\FallingCookie.cs" />
     <Compile Include="Assets\Scripts\FallingCookiesManager.cs" />
+    <Compile Include="Assets\Scripts\Hax.cs" />
     <Compile Include="Assets\Scripts\IdleCookies.cs" />
     <Compile Include="Assets\Scripts\SaveLoad.cs" />
     <Compile Include="Assets\Scripts\Scriptable objects\Achivements\ClicksAchievement.cs" />
     <Compile Include="Assets\Scripts\Scriptable objects\Achivements\ScoreAchivement.cs" />
     <Compile Include="Assets\Scripts\Scriptable objects\Achivements\UpgradesBoughtAchievement.cs" />
+    <Compile Include="Assets\Scripts\Scriptable objects\Cheatcodes\Cheatcode.cs" />
+    <Compile Include="Assets\Scripts\Scriptable objects\Cheatcodes\InstantCookies.cs" />
+    <Compile Include="Assets\Scripts\Scriptable objects\Cheatcodes\MoreCps.cs" />
+    <Compile Include="Assets\Scripts\Scriptable objects\Upgrades\ClickUp.cs" />
+    <Compile Include="Assets\Scripts\Scriptable objects\Upgrades\CpsClickUp.cs" />
+    <Compile Include="Assets\Scripts\Scriptable objects\Upgrades\CpsUp.cs" />
+    <Compile Include="Assets\Scripts\Scriptable objects\Upgrades\UpgradeEffect.cs" />
     <Compile Include="Assets\Scripts\UpgradeManager.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/joar.andersson/Documents/UnityProjects/CookieClicker/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
