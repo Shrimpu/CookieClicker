@@ -23,7 +23,7 @@ public class Hax : MonoBehaviour
                 KeyCode kc = cheatcodes[i].keycodes[cheatcodes[i].progress];
                 if (Input.GetKeyDown(kc))
                 {
-                    cheatcodes[i].progress++;
+                    cheatcodes[i].progress++; // progress represents a char in the cheatcode string
                     if (cheatcodes[i].progress == cheatcodes[i].keycodes.Length)
                     {
                         cheatcodes[i].progress = 0;

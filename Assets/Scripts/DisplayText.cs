@@ -16,7 +16,6 @@ public class DisplayText : MonoBehaviour
     bool displayingAchievement;
     List<AchievementInfo> achievementQueue = new List<AchievementInfo>();
     List<AchievementInfo> achievementsDisplayed = new List<AchievementInfo>();
-    Cookie cookieScript;
 
     private void Start()
     {
@@ -39,7 +38,7 @@ public class DisplayText : MonoBehaviour
 
     private void AchievementTextDisplay(string text1, string text2, Sprite image1)
     {
-        AchievementInfo toAdd = new AchievementInfo
+        AchievementInfo toAdd = new AchievementInfo // creates a new achievementinfo to save its data
         {
             Name = text1,
             Description = text2,
@@ -67,11 +66,12 @@ public class DisplayText : MonoBehaviour
         displayingAchievement = true;
         float a = 0f;
 
+        // sets all values to the current achievements
         achievementText[0].text = achievementQueue[0].Name;
         achievementText[1].text = achievementQueue[0].Description;
         achievementImage.sprite = achievementQueue[0].image;
 
-        while (a < 1f)
+        while (a < 1f) // some basic fade in
         {
             a += Time.deltaTime / fadeInIime;
             achievementText[0].color = new Color(achievementText[0].color.r, achievementText[0].color.g, achievementText[0].color.b, a > 0 ? a : 0);
@@ -91,7 +91,7 @@ public class DisplayText : MonoBehaviour
 
         achievementQueue.RemoveAt(0);
         if (achievementQueue.Count > 0)
-            StartCoroutine(DisplayAchievement());
+            StartCoroutine(DisplayAchievement()); // restarts coroutine if an achievement was added while this one was displaying
         else
             displayingAchievement = false;
     }

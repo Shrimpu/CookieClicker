@@ -14,17 +14,17 @@ public class FallingCookie : MonoBehaviour
     SpriteRenderer[] childsr;
 
     [HideInInspector]
-    public bool die = false;
+    public bool die = false; // one-time cookie
 
     void Start()
     {
         Camera cam = Camera.main;
-        height = cam.orthographicSize;
-        width = height * cam.aspect;
+        height = cam.orthographicSize; // some fancy stuff i found on the web
+        width = height * cam.aspect; // thank you random user
         sr = GetComponent<SpriteRenderer>();
 
         childsr = new SpriteRenderer[transform.childCount];
-        for (int i = 0; i < transform.childCount; i++)
+        for (int i = 0; i < transform.childCount; i++) // yeah, my cookie sucks and is built with unity-sprites so there's a lot.
         {
             childsr[i] = transform.GetChild(i).GetComponent<SpriteRenderer>();
         }
@@ -43,18 +43,19 @@ public class FallingCookie : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        fallSpeed = Random.Range(minMaxFallSpeed.x, minMaxFallSpeed.y);
         SetNewPos();
     }
 
     void SetNewPos()
     {
-        float maxPercentage = Random.Range(0f, 1f);
-        fallSpeed = Mathf.Abs(minMaxFallSpeed.x - minMaxFallSpeed.y) * maxPercentage + minMaxFallSpeed.x;
-        float scale = Mathf.Abs(minMaxScale.x - minMaxScale.y) * maxPercentage + minMaxScale.x;
-        float alpha = ((255 - minAlpha) * maxPercentage + minAlpha) / 255f;
-        int layer = (int)(100f * maxPercentage) - 100 + -1;
+        // calculate values
+        float maxPercentage = Random.Range(0f, 1f); // the big boi that controlls all other values.
+        fallSpeed = Mathf.Abs(minMaxFallSpeed.x - minMaxFallSpeed.y) * maxPercentage + minMaxFallSpeed.x; // same
+        float scale = Mathf.Abs(minMaxScale.x - minMaxScale.y) * maxPercentage + minMaxScale.x;           // thing
+        float alpha = ((255 - minAlpha) * maxPercentage + minAlpha) / 255f;                               // different number
+        int layer = (int)(100f * maxPercentage) - 100 + -1;     // its always atleast -1
 
+        // assign all values
         sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, alpha);
         transform.position = new Vector2(Random.Range(-width, width), height + 0.5f);
         transform.localScale = new Vector3(scale, scale, scale);

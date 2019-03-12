@@ -9,6 +9,7 @@ public class Cookie : MonoBehaviour
     public delegate void ClickEventDelegate(ulong cookiesPerClick);
     public static ClickEventDelegate ClickEvent;
 
+    // allows me to cuztomise inputs that click the cookie
     public string[] Inputs;
     private KeyCode kc;
 
@@ -25,7 +26,7 @@ public class Cookie : MonoBehaviour
     {
         for (int i = 0; i < Inputs.Length; i++)
         {
-            kc = (KeyCode)System.Enum.Parse(typeof(KeyCode), Inputs[i]);
+            kc = (KeyCode)System.Enum.Parse(typeof(KeyCode), Inputs[i]); // this is not optimal. should have a keycode array.
             if (Input.GetKeyDown(kc))
                 Clicked();
         }

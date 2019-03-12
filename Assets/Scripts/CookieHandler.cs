@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CookieHandler : MonoBehaviour
+public class CookieHandler : MonoBehaviour // this script should not be a monobehaviour.
 {
     public static event System.Action CookiesGained;
 

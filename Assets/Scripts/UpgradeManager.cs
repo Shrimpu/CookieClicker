@@ -11,7 +11,7 @@ public class UpgradeManager : MonoBehaviour
     public Transform autoClickerHolder;
 
     [System.Serializable]
-    public class UpgradeData
+    public class UpgradeData // a lot more of this could be in a scriptable object.
     {
         public UpgradeEffect effect;
         [Tooltip("Requires two textobjects as children")]
@@ -37,7 +37,7 @@ public class UpgradeManager : MonoBehaviour
     public ulong minimumCostIncrease = 5;
     public float costScaling = 0.05f;
 
-    // bools for buying more
+    // bools for buying more per click
     public bool buy10;
     public bool buy100;
 
@@ -63,9 +63,9 @@ public class UpgradeManager : MonoBehaviour
         currentRadius = radius;
         autoClickerOffsetAmount = (360 / autoClickersPerLevel) / 2;
 
-        //cookie = FindObjectOfType<Cookie>();
         for (int i = 0; i < upgradeData.Length; i++)
         {
+            // assign some values
             upgradeData[i]._name = upgradeData[i].upgrade.transform.GetChild(0).GetComponent<Text>();
             upgradeData[i].cost = upgradeData[i].upgrade.transform.GetChild(1).GetComponent<Text>();
             upgradeData[i].amount = upgradeData[i].upgrade.transform.GetChild(2).GetComponent<Text>();
@@ -80,7 +80,7 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
-    // this doesn't really belong in this script
+    // I really should've used an enum... welp.
     #region changing buyAmount variables
 
     public void DisableMultiBuy()
@@ -110,7 +110,7 @@ public class UpgradeManager : MonoBehaviour
 
             bool[] afforded = new bool[100];
             afforded = BuyUpgrades((ulong)index);
-            if (index == 0)
+            if (index == 0) // some spicy hardcoding. yum!
             {
                 for (int i = 0; i < afforded.Length; i++)
                 {
@@ -132,16 +132,20 @@ public class UpgradeManager : MonoBehaviour
         {
             if (CookieHandler.cookies >= upgradeData[upgradeID].updatedCost || free)
             {
+                // pay
                 if (!free)
                     CookieHandler.cookies -= upgradeData[upgradeID].updatedCost;
 
+                // cost increase
                 if ((ulong)(upgradeData[upgradeID].updatedCost * costScaling) <= upgradeData[upgradeID].updatedCost + minimumCostIncrease)
                     upgradeData[upgradeID].updatedCost += minimumCostIncrease;
                 else
                     upgradeData[upgradeID].updatedCost = (ulong)(upgradeData[upgradeID].updatedCost * costScaling);
 
+                // change internal text
                 upgradeData[upgradeID].cost.text = upgradeData[upgradeID].updatedCost.ToString();
 
+                // benefit
                 upgradeData[upgradeID].effect.Do(upgradeData[upgradeID].increase);
 
                 if (!free)
@@ -157,7 +161,7 @@ public class UpgradeManager : MonoBehaviour
         return false;
     }
 
-    public bool[] BuyUpgrades(ulong functionID)
+    public bool[] BuyUpgrades(ulong functionID) // this just runs the BuyUpgrade() function many times
     {
         bool[] afforded = new bool[100];
 
@@ -183,7 +187,7 @@ public class UpgradeManager : MonoBehaviour
         return afforded;
     }
 
-    public void buyUpgradesOnLoad(ulong[] upgradeID, ulong[] amount)
+    public void buyUpgradesOnLoad(ulong[] upgradeID, ulong[] amount) // this is just plain sad
     {
         ResetAll();
 
@@ -205,12 +209,15 @@ public class UpgradeManager : MonoBehaviour
     float retardRatio;
     public void SpawnAutoClicker()
     {
+        // spawn and assign pos
         GameObject spawnedClicker = Instantiate(autoClicker,
             autoClickerHolder.position - new Vector3(Mathf.Cos((currentAngle + 90f) * Mathf.Deg2Rad),
             Mathf.Sin((currentAngle + 90f) * Mathf.Deg2Rad)) * currentRadius, Quaternion.Euler(0, 0, currentAngle));
+        // update angle
         currentAngle += 360 / autoClickersPerLevel;
-
+        // set parent
         spawnedClicker.transform.SetParent(autoClickerHolder);
+        // send a cycle offset to the clickers script
         autoClickerClickOffset = (autoClickerCounter / autoClickersPerLevel) * (2 * activeClickersPerLevel * Mathf.PI); // multipling with PI because Unity uses radians and the amount is pretty much active clickers * 2
         spawnedClicker.GetComponent<ClickerBehaviour>().offset = autoClickerClickOffset;
 
@@ -226,7 +233,7 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
-    private void ResetAll()
+    private void ResetAll() // ow
     {
         ClickerBehaviour[] clickers = FindObjectsOfType<ClickerBehaviour>();
         for (int i = 0; i < clickers.Length; i++)

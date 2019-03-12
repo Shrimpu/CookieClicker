@@ -12,6 +12,7 @@ public class Achievements : MonoBehaviour
     public delegate void OnAchivementGetDelegate(string _name, string description, Sprite image);
     public OnAchivementGetDelegate OnAchivementGet;
 
+    // all types of achievements
     public ClicksAchievement[] clickAchievements;
     public ScoreAchievement[] scoreAchievements;
     public ScoreAchievement[] cpsAchievements;
@@ -24,6 +25,7 @@ public class Achievements : MonoBehaviour
         if (resetAchievementsOnLoad)
             ResetAchievements();
 
+        // sets up all events
         Cookie.TotalClicks += AddToClickTotal;
         Cookie.TotalClicks += CheckClickAchievements;
         Cookie.TotalClicks += CheckScoreAchievements;
@@ -80,7 +82,7 @@ public class Achievements : MonoBehaviour
 
     #region Achievements Checks
 
-    int clickAchievementsGot = 0;
+    int clickAchievementsGot = 0; // this helps us start from latest achievement got in the for-loop
     void CheckClickAchievements()
     {
         for (int i = clickAchievementsGot; i < clickAchievements.Length; i++)
@@ -90,7 +92,7 @@ public class Achievements : MonoBehaviour
                 Cookie.cookiesPerClick += clickAchievements[i].cpcIncrease;
                 clickAchievementsGot = i;
                 DisplayAchievement(clickAchievements[i].name, clickAchievements[i].description, clickAchievements[i].image);
-                break;
+                break; // break to stop unecessary checks on achievements we know we havn't fulfilled.
             }
         }
     }

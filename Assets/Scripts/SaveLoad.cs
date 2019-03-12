@@ -76,7 +76,7 @@ public class SaveLoad : MonoBehaviour
         return data;
     }
 
-    private void LoadValues(SaveData data)
+    private void LoadValues(SaveData data) // kill me. doesn't even work right so please ignore
     {
         saveData.achievements = FindObjectOfType<Achievements>(); // reassigns these because i cant bother troubleshooting and if it breakes then so be it. me tired
         saveData.cookieHandler = FindObjectOfType<CookieHandler>();

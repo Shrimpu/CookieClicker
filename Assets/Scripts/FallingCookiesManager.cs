@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FallingCookiesManager : MonoBehaviour
 {
-    public static event System.Action Under30Fps;
+    public static event System.Action Under30Fps; // these don't work too well
     public static event System.Action Under15Fps;
 
     public static int fpsDrop;
@@ -14,7 +14,7 @@ public class FallingCookiesManager : MonoBehaviour
     public int cookieNewNumber = 5;
     public int cookieMaxNumber = 20;
     public ulong maxCookiesPerClick = 15;
-    public ulong maxCookiesPerClickOnComputerBreakdownAndTheFramesGoVeryLow = 1;
+    public ulong maxCookiesPerClickOnComputerBreakdownAndTheFramesGoVeryLow = 1; // please no minus points because of these names. i think they're very descriptive
     public ulong maxCookiesPerClickOnComputerBreakdownAndTheFramesGoVeryLowEXTRADISASTER = 0;
 
     float cookiesSpawned;
@@ -48,7 +48,7 @@ public class FallingCookiesManager : MonoBehaviour
     void SpawnAntiVaxxCookie(ulong amount)
     {
         ulong maxCookiesToSpawn = maxCookiesPerClick;
-        if (Time.deltaTime > 1f / 15f)
+        if (Time.deltaTime > 1f / 15f) // this allows my computer to function
         {
             maxCookiesToSpawn = maxCookiesPerClickOnComputerBreakdownAndTheFramesGoVeryLowEXTRADISASTER;
             fpsDropSevere++;
@@ -67,7 +67,7 @@ public class FallingCookiesManager : MonoBehaviour
         for (int i = 0; i < (int)amount; i++)
         {
             GameObject spawnedCookie = Instantiate(cookie);
-            spawnedCookie.GetComponent<FallingCookie>().die = true;
+            spawnedCookie.GetComponent<FallingCookie>().die = true; // makes cookie only last one cycle
         }
     }
 }

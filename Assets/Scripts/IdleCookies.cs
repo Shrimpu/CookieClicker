@@ -17,19 +17,19 @@ public class IdleCookies : MonoBehaviour
         StartCoroutine(GiveIdleCookies());
     }
 
-    IEnumerator GiveIdleCookies()
+    IEnumerator GiveIdleCookies() // this function is originally written by joar (me).
     {
         float cookiesOnHold = 0;
         while (true)
         {
-            yield return new WaitForSeconds(1f / executionTimesPerSecond);
+            yield return new WaitForSeconds(1f / executionTimesPerSecond); // if exectimes = 10, wait 0.1s
 
-            cookiesOnHold += (cookiesPerSecond / executionTimesPerSecond);
+            cookiesOnHold += (cookiesPerSecond / executionTimesPerSecond); // saves the exact number of cookies earned
 
             if (cookiesOnHold >= 1f)
             {
-                CookieHandler.AddCookies((ulong)Mathf.Floor(cookiesOnHold));
-                cookiesOnHold = cookiesOnHold % 1f; // saves the decimals that wern't added due to the cast to ulong
+                CookieHandler.AddCookies((ulong)Mathf.Floor(cookiesOnHold)); // if cookiesOnHold = 1.33. it adds 1.
+                cookiesOnHold = cookiesOnHold % 1f; // saves the decimals that weren't added
 
                 if (IdleCookieGained != null)
                     IdleCookieGained.Invoke();
@@ -40,7 +40,7 @@ public class IdleCookies : MonoBehaviour
     public static void ChangeCpsMult(ulong mult)
     {
         cookiesPerSecond *= mult;
-        cookieBoost *= mult;
+        cookieBoost *= mult; // cookieboost allows me to permanently add more cookies
         if (CpsChanged != null)
             CpsChanged.Invoke();
     }

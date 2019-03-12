@@ -12,7 +12,7 @@ public abstract class Cheatcode : ScriptableObject
     [HideInInspector]
     public int progress = 0;
 
-    public void SetUp()
+    public void SetUp() // assign keycode array
     {
         progress = 0;
         keycodes = new KeyCode[code.Length];
@@ -22,5 +22,5 @@ public abstract class Cheatcode : ScriptableObject
         }
     }
 
-    public abstract void UniqueEffect();
+    public abstract void UniqueEffect(); // what the cheatcode does
 }
