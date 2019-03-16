@@ -65,6 +65,7 @@
     <Compile Include="Assets\BadStuffNoLook\SpaceClicker.cs" />
     <Compile Include="Assets\BadStuffNoLook\Spinner.cs" />
     <Compile Include="Assets\Scripts\Achievements.cs" />
+    <Compile Include="Assets\Scripts\AlternativeBuyIdea.cs" />
     <Compile Include="Assets\Scripts\ClickerBehaviour.cs" />
     <Compile Include="Assets\Scripts\Cookie.cs" />
     <Compile Include="Assets\Scripts\CookieHandler.cs" />
